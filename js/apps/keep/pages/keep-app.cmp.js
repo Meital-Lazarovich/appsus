@@ -12,7 +12,7 @@ export default {
         <section class="keep-app">
             <h1>keep it!</h1>
             <note-add @added="addNote"></note-add>
-            <note-list :notes="notesToShow" @selected="selectNote"></note-list>
+            <note-list :notes="notesToShow"></note-list>
 
         </section>
     `,
@@ -26,9 +26,6 @@ export default {
             keepService.addNote(note)
                 .then(() => keepService.getNotes())
                 .then(notes => this.notes = notes)
-        },
-        selectNote(note) {
-            console.log('clicked note:', note);
         }
     },
     computed: {

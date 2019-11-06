@@ -6,10 +6,10 @@ export default {
     template: `
     <section class="note-add flex align-center justify-center">
         <input type="text" ref="noteInput" :placeholder="inputPlaceholder" @keyup.enter="addNote" v-model="note.data"/>
-        <button @click="changeNoteType('text')">TEXT</button>
-        <button @click="changeNoteType('img')">IMG</button>
-        <button @click="changeNoteType('vid')">VID</button>
-        <button @click="changeNoteType('list')">LIST</button>
+        <button @click="changeNoteType('textNote')">TEXT</button>
+        <button @click="changeNoteType('imgNote')">IMG</button>
+        <button @click="changeNoteType('vidNote')">VID</button>
+        <button @click="changeNoteType('todoNote')">LIST</button>
     </section>
     `,
     data() {
@@ -34,14 +34,14 @@ export default {
     },
     computed: {
         inputPlaceholder() {
-            if (this.note.type === 'text') return `What's on your mind?`;
-            if (this.note.type === 'img') return `Enter image URL`;
-            if (this.note.type === 'vid') return `Enter video URL`;
-            if (this.note.type === 'list') return `Enter comma separated list`;
+            if (this.note.type === 'textNote') return `What's on your mind?`;
+            if (this.note.type === 'imgNote') return `Enter image URL`;
+            if (this.note.type === 'vidNote') return `Enter video URL`;
+            if (this.note.type === 'todoNote') return `Enter comma separated list`;
         }
     },
     mounted() {
-        this.changeNoteType('text')
+        this.changeNoteType('textNote')
     }
 
 }

@@ -1,0 +1,28 @@
+.note-preview img {
+    max-height: 300px;
+    max-width: 300px;
+}
+
+.note-preview {
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 5px;
+}
+
+.note-preview .marked {
+    text-decoration: line-through;
+}
+
+.note-preview input {
+    position: fixed;
+    top: 1000px;
+    left: 1000px;
+}
+
+.note-preview .todo-note div{
+    border-bottom: 1px solid gray;
+}
+
+.note-preview label {
+    padding: 5px 0;
+}
