@@ -8,7 +8,8 @@ const STORAGE_KEY = 'emails'
 export default {
     getEmails,
     findEmail,
-    addEmail
+    addEmail,
+    toggleIsRead
 }
 
 let gEmails = [
@@ -64,4 +65,17 @@ function findEmail(id) {
         gEmails.unshift(newEmail);
         storageService.store(STORAGE_KEY, gEmails)
         return Promise.resolve(gEmails)
+  }
+
+  function toggleIsRead(id){
+    let book = gEmails.find(email => {
+        return email.id === id
+    })
+    book.isRead = true;
+    storageService.store(STORAGE_KEY, gEmails)
+    return Promise.resolve(book)
+  }
+
+  function getUnreadEmails(){
+      
   }
