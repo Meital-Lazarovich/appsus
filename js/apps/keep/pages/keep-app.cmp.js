@@ -3,6 +3,7 @@
 
 import {keepService} from '../services/keep.service.js'
 import noteAdd from '../cmps/note-add.cmp.js'
+import noteList from '../cmps/note-list.cmp.js'
 
 
 export default {
@@ -11,7 +12,6 @@ export default {
         <section class="keep-app">
             <h1>keep it!</h1>
             <note-add @added="addNote"></note-add>
-            <pre v-if="notes.length > 0" v-for="note in notes">{{note}}</pre>
             <note-list :notes="notesToShow" @selected="selectNote"></note-list>
 
         </section>
@@ -41,7 +41,7 @@ export default {
             .then((notes) => this.notes = notes)
     },
     components: {
-        // noteList
+        noteList,
         noteAdd
     }
 }

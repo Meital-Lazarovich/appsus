@@ -7,7 +7,7 @@ export default {
     props: ['notes'],
     template: `
     <section class="note-list">
-        <ul class="clean-list flex wrap justify-center align-center">
+        <ul class="clean-list flex column justify-center align-center">
             <note-preview v-for="currNote in notes" :note="currNote" @click.native="onSelectNote(currNote.id)" :key="currNote.id">
             </note-preview>
         </ul>

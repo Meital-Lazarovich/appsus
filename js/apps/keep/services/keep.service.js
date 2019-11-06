@@ -23,7 +23,7 @@ function getNotes() {
 function addNote(note) {
     if (note.type === 'list') note.data = note.data.split(', ')
     var newNote = {
-        id: makeId,
+        id: makeId(),
         type: note.type,
         data: note.data,
         isPinned: false,
