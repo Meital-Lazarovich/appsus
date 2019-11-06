@@ -9,7 +9,8 @@ export default {
     getEmails,
     findEmail,
     addEmail,
-    toggleIsRead
+    toggleIsRead,
+    getUnreadEmails
 }
 
 let gEmails = [
@@ -24,7 +25,7 @@ let gEmails = [
         id: makeId(),
         subject: 'How are you?', 
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget gravida cum sociis natoque penatibus et magnis dis. Libero enim sed faucibus turpis in eu. Dui faucibus in ornare quam viverra orci sagittis. Nibh praesent tristique magna sit amet.', 
-        isRead: false, 
+        isRead: true, 
         sentAt : 1551133930594
     },
     {
@@ -77,5 +78,10 @@ function findEmail(id) {
   }
 
   function getUnreadEmails(){
+      let unreadEmails = gEmails.filter(email => {
+            return email.isRead === false;
+      })
+      console.log(unreadEmails);
       
-  }
+      return unreadEmails
+    }
