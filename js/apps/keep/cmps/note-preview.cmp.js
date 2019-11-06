@@ -9,9 +9,6 @@ export default {
     props: ['note'],
     template: `
         <section class="note-preview text-center" :style="{'background-color': note.color}">
-            <!-- <router-link :to="noteDetailsLink" :style="{'background-color': note.color}">
-                <component :is="note.type"  :data="note.data"></component>
-            </router-link> -->
             <div>
                 <component :is="note.type"  :data="note.data"></component>
             </div>
