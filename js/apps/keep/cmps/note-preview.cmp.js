@@ -1,15 +1,20 @@
 'use strict';
 
+import textNote from './text-note.cmp.js'
+import imgNote from './img-note.cmp.js'
+import todoNote from './todo-note.cmp.js'
+
 export default {
     name: 'note-preview',
     props: ['note'],
     template: `
-        <section class="note-preview text-center">
-            <router-link :to="noteDetailsLink" :style="{'background-color': note.color}">
-                <h3>{{ note.data }}</h3> 
-                <p>note type: {{note.type}}</p>
-                <p v-if="note.isPinned">P!</p>
-            </router-link>
+        <section class="note-preview text-center" :style="{'background-color': note.color}">
+            <!-- <router-link :to="noteDetailsLink" :style="{'background-color': note.color}">
+                <component :is="note.type"  :data="note.data"></component>
+            </router-link> -->
+            <div>
+                <component :is="note.type"  :data="note.data"></component>
+            </div>
         </section>
     `,
     computed: {
@@ -17,9 +22,10 @@ export default {
             return `/book`
         }
     },
-    created() {
-        console.log('this.note', this.note);
-        console.log('this.note.id', this.note.id);
+    components: {
+        textNote,
+        imgNote,
+        todoNote
     }
 }
 

@@ -21,7 +21,11 @@ function getNotes() {
 }
 
 function addNote(note) {
-    if (note.type === 'list') note.data = note.data.split(', ')
+    if (note.type === 'todoNote') {
+        let todos = note.data.split(', ')
+        let todosNew = todos.map(todo => ({txt: todo, isDone: false, id: makeId()}))
+        note.data = todosNew
+    }
     var newNote = {
         id: makeId(),
         type: note.type,
@@ -44,33 +48,37 @@ function getNoteById(noteId) {
 var gNotes = [
     {
         id: '2A3d',
-        type: 'text',
+        type: 'textNote',
         data: 'How to make the best magic ever',
         isPinned: false,
         color: 'white'
     },
     {
         id: '92Pq',
-        type: 'img',
+        type: 'imgNote',
         data: 'https://www.insertcart.com/wp-content/uploads/2018/05/thumbnail.jpg',
         isPinned: true,
         color: 'white'
     },
     {
         id: '204sK',
-        type: 'list',
+        type: 'todoNote',
         data: [
             {
                 txt: 'buy a new wand',
-                isDone: false
+                isDone: false,
+                id: '99djes'
             },
             {
                 txt: 'fix the moving img',
-                isDone: true
+                isDone: true,
+                id: 'iqksO8a'
             }
         ],
         isPinned: false,
         color: 'lightblue'
     }
 ]
+
+
 
