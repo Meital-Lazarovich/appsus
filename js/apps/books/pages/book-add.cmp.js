@@ -1,7 +1,7 @@
 'use strict';
 
 import {bookService} from '../services/book.service.js'
-import {eventBus} from '../../../sevices/event-bus.service.js'
+import {eventBus} from '../../../services/event-bus.service.js'
 
 export default {
     name: 'book-add',
