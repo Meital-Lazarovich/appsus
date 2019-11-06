@@ -2,7 +2,7 @@
 
 import {bookService} from '../services/book.service.js'
 import '../../../cmps/long-text.cmp.js'
-import {eventBus} from '../../../sevices/event-bus.service.js'
+import {eventBus} from '../../../services/event-bus.service.js'
 import reviewAdd from '../cmps/review-add.cmp.js'
 import appHeader from '../cmps/app-header.cmp.js'
 
