@@ -29,7 +29,8 @@ export default  {
                 } )
         },
         handleEmailDate(timeStamp){
-            return new Date(timeStamp)
+            let date = '' + new Date(timeStamp)
+            return date.substring(0, 15)
         }
         
     },
