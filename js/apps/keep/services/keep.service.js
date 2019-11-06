@@ -5,7 +5,8 @@ import {makeId} from '../../../services/util.service.js'
 export const keepService = {
     getNotes,
     addNote,
-    getNoteById
+    getNoteById,
+    updateNote
 }
 
 const NOTES_KEY = 'notes'
@@ -42,6 +43,14 @@ function getNoteById(noteId) {
     gNotes = storageService.load(NOTES_KEY);
     var note = gNotes.find(note => note.id === noteId)
     return Promise.resolve(note);
+}
+
+function updateNote(note) {
+    var noteId = note.id
+    var noteIdx = gNotes.findIndex(note => note.id === noteId)
+    gNotes[noteIdx] = note;
+    storageService.store(NOTES_KEY, gNotes)
+    return Promise.resolve(gNotes);
 }
 
 
