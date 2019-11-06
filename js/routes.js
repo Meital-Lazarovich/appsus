@@ -1,4 +1,6 @@
 import welcomePage from './pages/welcome-page.cmp.js';
+import emailApp from './apps/email/cmps/email-app.cmps.js';
+import emailDetails from './apps/email/cmps/email-details.cmp.js';
 import bookApp from './apps/books/pages/book-app.cmp.js';
 import keepApp from './apps/keep/pages/keep-app.cmp.js';
 import bookWelcomePage from './apps/books/pages/welcome-page.cmp.js';
@@ -17,8 +19,12 @@ const routes = [
         component: keepApp
     },
     {
-        path: '/',
-        component: welcomePage
+        path: '/email',
+        component: emailApp
+    },
+    {
+        path: '/email/details/:id',
+        component: emailDetails
     },
     {
         path: '/book',
