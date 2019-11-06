@@ -11,8 +11,9 @@ export default {
         <section class="keep-app">
             <h1>keep it!</h1>
             <note-add @added="addNote"></note-add>
-            <pre v-if="notes.length > 0" v-for="note in notes">note</pre>
-            <!-- <note-list></note-list> -->
+            <pre v-if="notes.length > 0" v-for="note in notes">{{note}}</pre>
+            <note-list :notes="notesToShow" @selected="selectNote"></note-list>
+
         </section>
     `,
     data(){
@@ -22,15 +23,22 @@ export default {
     },
     methods: {
         addNote(note) {
-            keepService.addNote(note);
-            this.notes = keepService.getNotes()
+            keepService.addNote(note)
+                .then(() => keepService.getNotes())
+                .then(notes => this.notes = notes)
+        },
+        selectNote(note) {
+            console.log('clicked note:', note);
         }
     },
     computed: {
-
+        notesToShow() {
+            return this.notes
+        }
     },
     created() {
-        this.notes = keepService.getNotes()
+        keepService.getNotes()
+            .then((notes) => this.notes = notes)
     },
     components: {
         // noteList
