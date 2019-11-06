@@ -3,7 +3,8 @@ import {makeId} from '../../../services/util.service.js'
 
 
 export const keepService = {
-    getNotes
+    getNotes,
+    
 }
 
 var gNotes = notes;
@@ -12,13 +13,6 @@ function getNotes() {
     return gNotes;
 }
 
-
-
-var notePlaceholderMap = {
-    text: `What's on your mind?`,
-    img: 'Enter image URL',
-    list: 'Enter comma separated list' 
-}
 
 var notes = [
     {
