@@ -45,7 +45,6 @@ export default  {
     },
     watch: {
         '$route.params.id'() {
-            // console.log('Route param: "id" changed');
             this.loadEmail();
         }
     }

@@ -3,9 +3,12 @@
 import {storageService} from '../../../services/storage.service.js'
 import {makeId} from '../../../services/util.service.js'
 
+const STORAGE_KEY = 'emails'
+
 export default {
     getEmails,
-    findEmail
+    findEmail,
+    addEmail
 }
 
 let gEmails = [
@@ -33,7 +36,14 @@ let gEmails = [
 ]
 
 function getEmails() {
-    return gEmails;
+    let newEmails = storageService.load(STORAGE_KEY);
+    if(!newEmails || newEmails.length === 0){
+        newEmails = gEmails
+        storageService.store(STORAGE_KEY, gEmails)
+    } 
+    console.log(newEmails);
+        gEmails = newEmails
+        return Promise.resolve(gEmails);
 }
 
 function findEmail(id) {
@@ -41,4 +51,17 @@ function findEmail(id) {
         return email.id === id;
     })
     return Promise.resolve(email);
+  }
+
+  function addEmail(email) {
+      let newEmail = {
+        id: makeId(),
+        subject: email.subject, 
+        body: email.body, 
+        isRead: false, 
+        sentAt : Date.now()
+    }
+        gEmails.unshift(newEmail);
+        storageService.store(STORAGE_KEY, gEmails)
+        return Promise.resolve(gEmails)
   }
