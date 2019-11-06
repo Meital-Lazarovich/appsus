@@ -1,21 +1,21 @@
 
-.app-header-container {
+.app-header {
     padding: 0 25px;
     background-color: #fff;
     border-bottom: 3px solid #cbd0d0;
 }
 
-.app-header-container nav > * {
+.app-header nav > * {
     color: black;
     margin-left: 40px;
     font-size: 20px;
 }
 
-.app-header-container .router-link-active {
+.app-header .router-link-active {
     color: #1c847b;
     font-weight: bold;
 }
 
-.app-header-container nav > *:hover {
+.app-header nav > *:hover {
     color: #1c847b;
 }

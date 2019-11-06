@@ -3,7 +3,7 @@
 export default {
     name: 'book-filter',
     template: `
-    <section class="book-filter-container flex justify-center align-center">
+    <section class="book-filter flex justify-center align-center">
         <h2>Filter by</h2>
         <form @submit.prevent="onFilter">
             Name:

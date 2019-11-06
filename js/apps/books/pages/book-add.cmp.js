@@ -6,7 +6,7 @@ import {eventBus} from '../../../sevices/event-bus.service.js'
 export default {
     name: 'book-add',
     template: `
-    <section class="book-add-container flex column align-center justify-center">
+    <section class="book-add flex column align-center justify-center">
         <h2>Search a book to add</h2>
         <form @submit.prevent="searchBook">
             <input type="search" v-model="searched"/>

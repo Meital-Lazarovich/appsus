@@ -3,7 +3,7 @@
 export default {
     name: 'review-add',
     template: `
-    <section class="review-add-container flex align-center space-around">
+    <section class="review-add flex align-center space-around">
         <h2>Add Review</h2>
         <form @submit.prevent="onSubmit" class="flex wrap align-center space-around">
             <div>

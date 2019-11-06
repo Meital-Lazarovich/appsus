@@ -6,7 +6,7 @@ export default {
     name: 'book-list',
     props: ['books'],
     template: `
-    <section class="book-list-container">
+    <section class="book-list">
         <ul class="clean-list flex wrap justify-center align-center">
             <book-preview v-for="currBook in books" :book="currBook" @click.native="onSelectBook(currBook.id)" :key="currBook.id">
             </book-preview>

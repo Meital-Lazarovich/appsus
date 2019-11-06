@@ -3,7 +3,7 @@
 Vue.component('long-text', {
     props: ['txt'],
     template: `
-        <section @click="toggleIsShort" class="long-text-container">
+        <section @click="toggleIsShort" class="long-text">
             <p>{{txtToShow}}
                 <button v-if="!!isShort">more</button>
             </p> 

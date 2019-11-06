@@ -1,11 +1,11 @@
 
-.book-filter-container {
+.book-filter {
     background-color: #cbd0d0;
     height: 50px;
     margin-bottom: 15px;
 }
 
-.book-filter-container h2 {
+.book-filter h2 {
     display: inline;
     margin: 0;
     margin-right: 30px;
@@ -13,11 +13,11 @@
     color: #1d9389;
 }
 
-.book-filter-container form {
+.book-filter form {
     margin-top: 3px;
 }
 
-.book-filter-container input {
+.book-filter input {
     outline: none;
     border-radius: 5px;
     padding: 7px;
@@ -26,7 +26,7 @@
     border: none;
 }
 
-.book-filter-container button {
+.book-filter button {
     background-color: #36a097;
     padding: 7px;
     border-radius: 5px;
@@ -36,6 +36,6 @@
     margin-left: 15px;
 }
 
-.book-filter-container .number-input {
+.book-filter .number-input {
     width: 70px;
 }

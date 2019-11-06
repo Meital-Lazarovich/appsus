@@ -1,4 +1,4 @@
-.review-add-container h2 {
+.review-add h2 {
     display: inline-block;
     margin: 0;
     margin-right: 15px;
@@ -10,16 +10,16 @@
     width: 190px;
 }
 
-.review-add-container .date-input {
+.review-add .date-input {
     width: 150px;
 }
 
-.review-add-container form {
+.review-add form {
     margin: 3px 20px 0;
     width: 750px;
 }
 
-.review-add-container input, .review-add-container select, .review-add-container textarea {
+.review-add input, .review-add select, .review-add textarea {
     outline: none;
     border-radius: 5px;
     padding: 7px;
@@ -28,12 +28,12 @@
     border: none;
 }
 
-.review-add-container textarea {
+.review-add textarea {
     width: 250px;
     margin-left: 10px;
 }
 
-.review-add-container .rate-btn {
+.review-add .rate-btn {
     font-size: 25px;
     font-weight: bold;
     padding: 0;
@@ -42,15 +42,15 @@
     background-color: transparent;
 }
 
-.review-add-container .rate-btn:hover, .review-add-container .rate-btn.marked {
+.review-add .rate-btn:hover, .review-add .rate-btn.marked {
     color: #36a097;
 }
 
-.review-add-container .rate {
+.review-add .rate {
     margin: 5px 15px 10px 5px;
 }
 
-.review-add-container button {
+.review-add button {
     background-color: #36a097;
     padding: 7px;
     border-radius: 5px;
@@ -60,7 +60,7 @@
     margin-left: 15px;
 }
 
-.review-add-container {
+.review-add {
     width: 100%;
     background-color: #cbd0d0;
 }

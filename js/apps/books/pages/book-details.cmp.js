@@ -9,7 +9,7 @@ import appHeader from '../cmps/app-header.cmp.js'
 export default {
     name: 'book-details',
     template: `
-        <section  v-if="book" class="book-details-container text-center flex column space-between align-center">
+        <section  v-if="book" class="book-details text-center flex column space-between align-center">
             <app-header></app-header>
             <div class="navigate flex space-between align-center">
                 <router-link :to="'/book/details/' + nearBooksIds.prev"> &lt; Prev Book</router-link>

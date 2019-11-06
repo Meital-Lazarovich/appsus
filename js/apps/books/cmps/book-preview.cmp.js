@@ -4,7 +4,7 @@ export default {
     name: 'book-preview',
     props: ['book'],
     template: `
-        <section class="book-preview-container text-center">
+        <section class="book-preview text-center">
             <router-link :to="bookDetailsLink">
                 <img :src="book.thumbnail"/>
                 <h3>{{ book.title }}</h3> 

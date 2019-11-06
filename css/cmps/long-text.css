@@ -1,16 +1,16 @@
-.long-text-container p{
+.long-text p{
     font-weight: normal;
     margin: 10px 0 2px;
     display: inline;
 }
 
-.long-text-container {
+.long-text {
     display: inline;
     margin-left: 10px;
     cursor: pointer;
 }
 
-.long-text-container button {
+.long-text button {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid gray;
