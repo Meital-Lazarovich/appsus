@@ -5,11 +5,11 @@ import emailPreview from './email-preview.cmp.js'
 export default  {
     props: ['emails'],
     template: `
-    <section class="emails-list-container">
+    <section class="emails-container">
         <div v-for="email in emails">
             <email-preview :class="{bold: !email.isRead}" :email="email" @click.native="toggleEmail(email)">
             </email-preview>
-            <div v-if="isReading && selectedEmail === emailm">{{shortTxt(email.body)}} 
+            <div v-if="isReading && selectedEmail === email">{{shortTxt(email.body)}} 
                 <router-link :to="'/email/details/' + email.id">
                     <button>ReadMore</button>
                 </router-link>
