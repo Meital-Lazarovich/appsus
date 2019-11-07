@@ -42,7 +42,7 @@ const routes = [
         component: bookApp
     }, 
     {
-        path: '/book/:id',
+        path: '/book/details/:id',
         component: bookDetails
     },
     {

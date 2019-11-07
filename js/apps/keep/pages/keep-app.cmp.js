@@ -11,7 +11,8 @@ export default {
     template: `
         <section class="keep-app">
             <note-add @added="addNote"></note-add>
-            <note-list :notes="notesToShow" @changed="updateNote" @removed='removeNote'></note-list>
+            <note-list :notes="notesToShow" @changed="updateNote" @removed="removeNote" 
+            @pinned="pinNote" @unpinned="unpinNote"></note-list>
 
         </section>
     `,
@@ -28,9 +29,23 @@ export default {
         },
         updateNote(note) {
             keepService.updateNote(note)
+                .then(() => keepService.getNotes())
+                .then(notes => this.notes = notes)
         },
         removeNote(note) {
             keepService.removeNote(note)
+                .then(() => keepService.getNotes())
+                .then(notes => this.notes = notes)
+        },
+        pinNote(note) {
+            keepService.pinNote(note)
+                .then(() => keepService.getNotes())
+                .then(notes => this.notes = notes)
+        },
+        unpinNote(note) {
+            keepService.unpinNote(note)
+                .then(() => keepService.getNotes())
+                .then(notes => this.notes = notes)
         }
     },
     computed: {

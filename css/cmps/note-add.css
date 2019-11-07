@@ -1,10 +1,11 @@
 .note-add {
-    margin: 15px;
+    margin: 15px auto;
     height: 50px;
     background-color: white;
     border: 1px solid silver;
     padding: 10px;
     border-radius: 7px;
+    max-width: 600px;
 }
 
 .note-add input {

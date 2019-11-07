@@ -5,7 +5,7 @@ export default {
     props: ['data'],
     template: `
         <section class="img-note">
-            <img :src="data"/>
+            <img class="note-img" :src="data"/>
             <i class="fa fa-image"></i>
         </section>
     `,

@@ -75,7 +75,6 @@ export default {
                 .then(book => {
                     this.book = book;
                     this.nearBooksIds = bookService.getNearBooksIds(book.id);
-                    console.log('this.nearBooksIds', this.nearBooksIds);
                 })
         },
         addReview(review) {

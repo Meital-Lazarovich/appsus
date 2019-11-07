@@ -13,6 +13,8 @@ export default {
         <div class="note-preview text-center flex column space-between" v-for="(note, idx) in notes" 
             :key="note.id" :style="{'background-color': note.color}" @click="toggleSelectedNote(note)" 
             :class="{selected: note === selectedNote}">
+            <img class="note-pin-img" v-if="!!note.isPinned" src="../../img/pin.png" 
+                @click.stop="togglePinNote(note)"/>
             <component :is="note.type"  :data="note.data"></component>
             <div class="opts" v-if="selectedNote === note">
                 <div class="color-btns-line text-center flex align-center space-around">
@@ -20,8 +22,8 @@ export default {
                     @click.stop="changeColor(color, note)" v-for="color in colors" 
                     :style="{'color': color}">⬤</button> 
                 </div>
-                <button @click.stop="updateNote(note)"><i class="fa fa-check"></i></button>
-                <button @click.stop="togglePinNote(note, idx)" :class="{selected: note.pinnedPos ==! null}"><i class="fa fa-thumb-tack"></i></button>
+                <button @click.stop="togglePinNote(note)" :class="{selected: !!note.isPinned}">
+                    <i class="fa fa-thumb-tack"></i></button>
                 <button @click.stop="openProp('color')" :class="{selected: openedProp === 'color'}">
                     <i class="fa fa-paint-brush"></i></button>
                 <button @click.stop="removeNote(note)"><i class="fa fa-trash"></i></button>
@@ -46,21 +48,24 @@ export default {
         },
         changeColor(color, note) {
             note.color = color
+            this.updateNote(note)
         },
         updateNote(note) {
             this.$emit('changed', note);
-            this.selectedNote = null;
-            this.openedProp = null;
+            this.cleanSelected()
         },
         removeNote(note) {
             this.$emit('removed', note);
+            this.cleanSelected()
+        },
+        togglePinNote(note) {
+            if (!note.isPinned) this.$emit('pinned', note);
+            else this.$emit('unpinned', note);
+            this.cleanSelected()
+        },
+        cleanSelected() {
             this.selectedNote = null;
             this.openedProp = null;
-        },
-        togglePinNote(note, idx) {
-            if (note.pinnedPos !== null) note.pinnedPos = null;
-            else note.pinnedPos = idx;
-            this.updateNote(note)
         }
     },
     components: {

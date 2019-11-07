@@ -7,7 +7,9 @@ export const keepService = {
     addNote,
     getNoteById,
     updateNote,
-    removeNote
+    removeNote,
+    pinNote,
+    unpinNote
 }
 
 const NOTES_KEY = 'notes'
@@ -19,10 +21,11 @@ function getNotes() {
         storageService.store(NOTES_KEY, notes)    
     }
     gNotes = notes;    
-    return Promise.resolve(notes);
+    return Promise.resolve(gNotes);
 }
 
 function addNote(note) {
+    gNotes = storageService.load(NOTES_KEY)
     if (note.type === 'todoNote') {
         let todos = note.data.split(', ')
         let fullTodos = todos.map(todo => ({txt: todo, isDone: false, id: makeId()}))
@@ -36,14 +39,11 @@ function addNote(note) {
         color: 'white'
     }
     gNotes.unshift(newNote)
-    gNotes.forEach((note, idx) => {
-        if (note.pinnedPos) {
-            gNotes.splice(idx, 1);
-            gNotes.splice(note.pinnedPos, 0, note)
-        }
-    })
     storageService.store(NOTES_KEY, gNotes)
-    return Promise.resolve();
+    gNotes.forEach(note => {
+        if (note.isPinned) pinNote(note)
+    })
+    return Promise.resolve(gNotes);
 }
 
 function getNoteById(noteId) {
@@ -62,6 +62,7 @@ function updateNote(note) {
 }
 
 function removeNote(note) {
+    gNotes = storageService.load(NOTES_KEY)
     var noteId = note.id
     var noteIdx = gNotes.findIndex(note => note.id === noteId)
     gNotes.splice(noteIdx, 1);
@@ -69,6 +70,28 @@ function removeNote(note) {
     return Promise.resolve(gNotes);
 }
 
+function pinNote(note) {
+    gNotes = storageService.load(NOTES_KEY)
+    var noteId = note.id
+    var noteIdx = gNotes.findIndex(note => note.id === noteId)
+    note.prevIdx = noteIdx
+    gNotes.splice(noteIdx, 1);
+    gNotes.splice(0, 0, note)
+    note.isPinned = true;
+    storageService.store(NOTES_KEY, gNotes)
+    return Promise.resolve(gNotes);
+}
+
+function unpinNote(note) {
+    gNotes = storageService.load(NOTES_KEY)
+    var noteId = note.id
+    var noteIdx = gNotes.findIndex(note => note.id === noteId)
+    gNotes.splice(noteIdx, 1);
+    gNotes.splice(note.prevIdx, 0, note)
+    note.isPinned = false;
+    storageService.store(NOTES_KEY, gNotes)
+    return Promise.resolve(gNotes);
+}
 
 var gNotes = [
     {
