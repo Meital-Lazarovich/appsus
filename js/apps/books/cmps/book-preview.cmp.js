@@ -20,7 +20,7 @@ export default {
             if (currencyCode === 'USD') return '$';
         },
         bookDetailsLink() {
-            return `/book/${this.book.id}`
+            return `/book/details/${this.book.id}`
         }
     }
 }

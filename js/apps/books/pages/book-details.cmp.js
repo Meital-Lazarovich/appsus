@@ -4,13 +4,11 @@ import {bookService} from '../services/book.service.js'
 import '../../../cmps/long-text.cmp.js'
 import {eventBus} from '../../../services/event-bus.service.js'
 import reviewAdd from '../cmps/review-add.cmp.js'
-import appHeader from '../../../cmps/app-header.cmp.js'
 
 export default {
     name: 'book-details',
     template: `
         <section  v-if="book" class="book-details text-center flex column space-between align-center">
-            <app-header></app-header>
             <div class="navigate flex space-between align-center">
                 <router-link :to="'/book/details/' + nearBooksIds.prev"> &lt; Prev Book</router-link>
                 <router-link :to="'/book/details/' + nearBooksIds.next">Next Book &gt; </router-link>
@@ -128,7 +126,6 @@ export default {
     },
     components: {
         reviewAdd,
-        appHeader
     }
 }
 

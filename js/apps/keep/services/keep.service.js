@@ -32,7 +32,7 @@ function addNote(note) {
         id: makeId(),
         type: note.type,
         data: note.data,
-        pinnedPos: null,
+        isPinned: false,
         color: 'white'
     }
     gNotes.unshift(newNote)
@@ -75,7 +75,7 @@ var gNotes = [
         id: 'jkje8S',
         type: 'vidNote',
         data: 'https://www.youtube.com/watch?v=fyvmLRmkRaU',
-        pinnedPos: null,
+        isPinned: false,
         color: 'white'
     },
     {
@@ -88,14 +88,14 @@ var gNotes = [
         Dash of soda water
         Crushed ice
         To Garnish: Sprig of Fresh Mint`,
-        pinnedPos: null,
+        isPinned: false,
         color: 'lemonchiffon'
     },
     {
         id: '92Pq',
         type: 'imgNote',
         data: 'https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg',
-        pinnedPos: null,
+        isPinned: false,
         color: 'pink'
     },
     {
@@ -113,7 +113,7 @@ var gNotes = [
                 id: 'iqksO8a'
             }
         ],
-        pinnedPos: null,
+        isPinned: false,
         color: 'lightcyan'
     }
 ]
