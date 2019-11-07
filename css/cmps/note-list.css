@@ -1,16 +1,8 @@
-/* .note-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 330px));
-    grid-auto-flow: row;
-    margin: 0 auto;
-} */
-
 .note-list {
     display: grid;
     grid-auto-flow: row;
     grid-gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
-    /* grid-auto-rows: 56px; */
+    grid-template-columns: repeat(auto-fill, minmax(270px,1fr));
     margin: 0 15px 15px;
 }
 
@@ -21,6 +13,7 @@
     cursor: pointer;
     min-height: 150px;
     transition: box-shadow .3s;
+    position: relative;
 }
 
 .note-list .note-preview section {
@@ -31,14 +24,21 @@
     justify-content: center;
 }
 
+.note-list .note-preview section i {
+    color: #808080ab;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
 .note-list .note-preview.selected, .note-list .note-preview:hover {
     box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.5);
 }
 
 .note-list .note-preview img {
-    max-height: 200px;
-    max-width: 200px;
-    object-fit: cover;
+    max-height: 180px;
+    max-width: 265px;
+    margin-bottom: 20px;
 }
 
 .note-list .note-preview p {
@@ -56,7 +56,7 @@
 }
 
 .note-list .note-preview .todo-note div{
-    border-bottom: 1px solid #b6b6b6;
+    border-bottom: 1px solid #9a9a9a6b;
     padding: 7px 0;
     width: 100%;
 }
@@ -89,4 +89,12 @@
     margin: 0 5px;
     padding: 0;
     background-color: transparent;
+}
+
+.note-list .vid-note {
+    margin-bottom: 20px;
+}
+
+.note-list .vid-note .iframe {
+    border: none;
 }

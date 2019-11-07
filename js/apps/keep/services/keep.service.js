@@ -32,10 +32,16 @@ function addNote(note) {
         id: makeId(),
         type: note.type,
         data: note.data,
-        isPinned: false,
+        pinnedPos: null,
         color: 'white'
     }
     gNotes.unshift(newNote)
+    gNotes.forEach((note, idx) => {
+        if (note.pinnedPos) {
+            gNotes.splice(idx, 1);
+            gNotes.splice(note.pinnedPos, 0, note)
+        }
+    })
     storageService.store(NOTES_KEY, gNotes)
     return Promise.resolve();
 }
@@ -47,10 +53,11 @@ function getNoteById(noteId) {
 }
 
 function updateNote(note) {
+    gNotes = storageService.load(NOTES_KEY);
     var noteId = note.id
     var noteIdx = gNotes.findIndex(note => note.id === noteId)
     gNotes[noteIdx] = note;
-    storageService.store(NOTES_KEY, gNotes)
+    storageService.store(NOTES_KEY, gNotes);
     return Promise.resolve(gNotes);
 }
 
@@ -65,36 +72,49 @@ function removeNote(note) {
 
 var gNotes = [
     {
+        id: 'jkje8S',
+        type: 'vidNote',
+        data: 'https://www.youtube.com/watch?v=fyvmLRmkRaU',
+        pinnedPos: null,
+        color: 'white'
+    },
+    {
         id: '2A3d',
         type: 'textNote',
-        data: 'How to make the best magic ever',
-        isPinned: false,
-        color: 'white'
+        data: `MOJITO RECIPE: 
+        2 parts Bacardi Carta Blanca
+        ½ fresh lime
+        12 fresh mint leaves
+        Dash of soda water
+        Crushed ice
+        To Garnish: Sprig of Fresh Mint`,
+        pinnedPos: null,
+        color: 'lemonchiffon'
     },
     {
         id: '92Pq',
         type: 'imgNote',
-        data: 'https://www.insertcart.com/wp-content/uploads/2018/05/thumbnail.jpg',
-        isPinned: true,
-        color: 'white'
+        data: 'https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg',
+        pinnedPos: null,
+        color: 'pink'
     },
     {
         id: '204sK',
         type: 'todoNote',
         data: [
             {
-                txt: 'buy a new wand',
-                isDone: false,
+                txt: 'Buy fresh limes',
+                isDone: true,
                 id: '99djes'
             },
             {
-                txt: 'fix the moving img',
-                isDone: true,
+                txt: 'Take the dog for a walk',
+                isDone: false,
                 id: 'iqksO8a'
             }
         ],
-        isPinned: false,
-        color: 'lightblue'
+        pinnedPos: null,
+        color: 'lightcyan'
     }
 ]
 

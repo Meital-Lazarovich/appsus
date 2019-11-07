@@ -3,13 +3,14 @@
 import textNote from './text-note.cmp.js'
 import imgNote from './img-note.cmp.js'
 import todoNote from './todo-note.cmp.js'
+import vidNote from './vid-note.cmp.js'
 
 export default {
     name: 'note-list',
     props: ['notes'],
     template: `
     <section class="note-list">
-        <div class="note-preview text-center flex column space-between" v-for="note in notes" 
+        <div class="note-preview text-center flex column space-between" v-for="(note, idx) in notes" 
             :key="note.id" :style="{'background-color': note.color}" @click="toggleSelectedNote(note)" 
             :class="{selected: note === selectedNote}">
             <component :is="note.type"  :data="note.data"></component>
@@ -20,6 +21,7 @@ export default {
                     :style="{'color': color}">⬤</button> 
                 </div>
                 <button @click.stop="updateNote(note)"><i class="fa fa-check"></i></button>
+                <button @click.stop="togglePinNote(note, idx)" :class="{selected: note.pinnedPos ==! null}"><i class="fa fa-thumb-tack"></i></button>
                 <button @click.stop="openProp('color')" :class="{selected: openedProp === 'color'}">
                     <i class="fa fa-paint-brush"></i></button>
                 <button @click.stop="removeNote(note)"><i class="fa fa-trash"></i></button>
@@ -54,12 +56,18 @@ export default {
             this.$emit('removed', note);
             this.selectedNote = null;
             this.openedProp = null;
+        },
+        togglePinNote(note, idx) {
+            if (note.pinnedPos !== null) note.pinnedPos = null;
+            else note.pinnedPos = idx;
+            this.updateNote(note)
         }
     },
     components: {
         textNote,
         imgNote,
-        todoNote
+        todoNote,
+        vidNote
     }
 }
 

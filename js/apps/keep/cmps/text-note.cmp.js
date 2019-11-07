@@ -6,6 +6,7 @@ export default {
     template: `
         <section class="text-note">
             <p>{{data}}</p>
+            <i class="fa fa-font"></i>
         </section>
     `,
 }
