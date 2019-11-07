@@ -1,15 +1,15 @@
-'use strict'
+'use strcit'
 
-import sideNav from '../cmps/email-sideNav.cmp.js'
-import emailInbox from './email-inbox.cmp.js'
+import emailList from './email-list.cmp.js'
+import emailFilter from './email-filter.cmp.js'
+import emailService from '../services/email.service.js'
 import {eventBus} from '../../../services/event-bus.service.js'
 
 export default {
     template: `
         <section class="email-app flex column align-center space-around">
-            <h1>Email App</h1>
-            <side-nav/>
-            <router-view></router-view>
+            <email-filter @filtered="setFilter"/>
+            <email-list :emails="emailsToShow"/>
         </section>
     `,
     data() {
@@ -33,13 +33,20 @@ export default {
                return regex.test(email.subject)
             })
         },
-        
+        unreadEmails() {
+            let unreadCount = emailService.getUnreadEmails()
+            return unreadCount.length
+        }
     },
     created() {
-       
+        emailService.getEmails()
+            .then(res => {
+                this.emails = res
+                eventBus.$emit('emails', res)
+            })
     },
     components: {
-        sideNav,
-        emailInbox
+        emailList,
+        emailFilter,
     }
 }

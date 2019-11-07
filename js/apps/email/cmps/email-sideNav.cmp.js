@@ -8,8 +8,9 @@ export default {
     props:['unreadCount'],
     template: `
             <section class="side-nav">
-            <router-link to="/email/compose"><button>Compose</button></router-link>
-            <email-status :unreadCount="unreadCount"></email-status>
+                <router-link to="/email/compose"><button>Compose</button></router-link>
+                <router-link to="/email/inbox"><button>Inbox</button></router-link>
+                <email-status :unreadCount="unreadCount"></email-status>
             </section>
     `,
     data() {
