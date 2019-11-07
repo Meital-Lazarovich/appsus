@@ -1,15 +1,22 @@
 'use strict'
 
+import { eventBus } from "../../../services/event-bus.service.js";
+
 export default  {
     props: ['email'],
     template: `
     <section class="email-prev-container" @click="toggleEmail">
-        <div>Me</div> <div class="email-content"><span>{{email.subject}}</span> - <span class="prev-txt">{{prevTxt(email.body)}}...</span></div>
-        <div v-if="isReading">{{shortTxt(email.body)}} 
+        <div>Me</div> 
+        <div class="email-content">
+            <span>{{email.subject}}</span> - 
+            <span class="prev-txt">{{prevTxt(email.body)}}...</span>
+        </div>
+        <div>☆</div>
+        <div class="more-info" v-if="isReading">{{shortTxt(email.body)}}
             <router-link :to="'/email/details/' + email.id">
                 <button>ReadMore</button>
             </router-link>
-            <button @click="handleDelete(email.id)">Delete</button>
+            <button @click.stop="handleDelete(email.id)">Delete</button>
         </div>  
     </section>
     `,
@@ -30,6 +37,9 @@ export default  {
         shortTxt(txt){
             return `${txt.substring(0, 50)}...`;
         },
+        handleDelete(emailId) {
+            eventBus.$emit('delete', emailId)
+        }
     },
     computed: {
     

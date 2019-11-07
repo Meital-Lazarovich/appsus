@@ -8,8 +8,8 @@ import {eventBus} from '../../../services/event-bus.service.js'
 export default {
     template: `
         <section class="email-inbox flex column">
-            <email-filter @filtered="setFilter"/>
-            <email-list :emails="emailsToShow" @delete="onDelete"/>
+            <email-filter @filtered="setFilter" @showAll="showAll"/>
+            <email-list :emails="emailsToShow"/>
         </section>
     `,
     data() {
@@ -25,20 +25,22 @@ export default {
         },
         onDelete(id){
             emailService.deleteEmail(id)
+        },
+        showAll() {
+            
         }
     },
     computed: {
         emailsToShow() {
             if (!this.filterBy) return this.emails;
-            
+            var isRead = this.filterBy.isRead;            
             var regex = new RegExp(`${this.filterBy.subject}`, 'i');
-
             return this.emails.filter(email => {
-               return regex.test(email.subject)
+                if (isRead === null) return regex.test(email.subject)
+               return regex.test(email.subject) && email.isRead === isRead;
             })
         },
         unreadEmails() {
-            // let undreadMails = emailService.getUnreadEmails()
             let unreadEmails = this.emails.filter(email => !email.isRead)
             eventBus.$emit('unreadCount', unreadEmails.length)
         }
@@ -51,6 +53,7 @@ export default {
                 let unreadEmails = this.emails.filter(email => !email.isRead)
                 eventBus.$emit('unreadCount', unreadEmails.length)
             })
+            eventBus.$on('delete', this.onDelete)
     },
     components: {
         emailList,

@@ -85,7 +85,9 @@ function findEmail(id) {
       return unreadEmails
     }
 
- function deleteEmail(id) {     
+ function deleteEmail(id) {
+     console.log('hi');
+          
     let emailIdx = gEmails.findIndex(email => email.id === id);
         gEmails.splice(emailIdx, 1)
         storageService.store(STORAGE_KEY, gEmails)
