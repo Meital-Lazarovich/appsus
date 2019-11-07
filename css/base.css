@@ -16,10 +16,6 @@ button {
     transition: 0.3s;
 }
 
-button:hover{
-    transform: scale(1.05);
-}
-
 a {
     text-decoration: none;
     color: inherit;

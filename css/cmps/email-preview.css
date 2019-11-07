@@ -1,0 +1,24 @@
+.email{
+    padding: 20px;
+    border-top: 1px solid #EA3939;
+    display: flex;
+    transition: 0.3s;
+}
+.email:last-child{
+    border-bottom: 1px solid #EA3939;
+}
+
+.email-content {
+    margin-left: 70px;
+}
+
+.prev-txt{
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.email:hover {
+    cursor: pointer;
+    background-color: #dbd9d9;
+    color: #EA3939;
+}

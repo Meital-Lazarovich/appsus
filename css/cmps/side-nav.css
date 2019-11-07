@@ -3,15 +3,25 @@
     border-right: 1px solid #EA3939;
     flex-direction: column;
     text-align: center;
-    padding-top: 30px;
-}
-
-.nav-item{
-    margin-top: 10px;
-    margin-bottom: 20px;
+    /* padding-top: 30px; */
 }
 
 .nav-item button {
     margin-left: 0;
+    background-color: #EA3939;
+    font-weight: bold;
+    color: black;
+    width: 100%;
+    border-radius: 0;
+    line-height: 40px;
+    transition: 0.3s;
+}
+
+.nav-item .nav-btn{
+    background: none;
+    transition: 0.3s;
+}
+
+.nav-item .nav-btn:hover{
     background-color: #EA3939;
 }

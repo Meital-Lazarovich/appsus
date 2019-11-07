@@ -10,7 +10,8 @@ export default {
     findEmail,
     addEmail,
     toggleIsRead,
-    getUnreadEmails
+    getUnreadEmails,
+    deleteEmail
 }
 
 let gEmails = [
@@ -80,8 +81,12 @@ function findEmail(id) {
   function getUnreadEmails(){
       let unreadEmails = gEmails.filter(email => {
             return email.isRead === false;
-      })
-      console.log(unreadEmails);
-      
+      })      
       return unreadEmails
     }
+
+ function deleteEmail(id) {     
+    let emailIdx = gEmails.findIndex(email => email.id === id);
+        gEmails.splice(emailIdx, 1)
+        storageService.store(STORAGE_KEY, gEmails)
+ }   
