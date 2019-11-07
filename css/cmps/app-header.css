@@ -12,10 +12,10 @@
 }
 
 .app-header .router-link-active {
-    color: #1c847b;
+    color: #fe876c;
     font-weight: bold;
 }
 
 .app-header nav > *:hover {
-    color: #1c847b;
+    color: #fe876c;
 }

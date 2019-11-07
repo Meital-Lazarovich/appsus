@@ -4,10 +4,13 @@
 
 .welcome-page h1 {
     position: absolute;
-    top: 250px;
-    left: 230px;
-    margin-top: -85px;
-    margin-left: -30px;
+    top: 50%;
+    left: 50%;
+    margin-top: -120px;
+    margin-left: -265px;
     color: #f6f6f6;
+    width: 490px;
+    height: 90px;
+    margin-bottom: 0;
     font-size: 80px;
 }
