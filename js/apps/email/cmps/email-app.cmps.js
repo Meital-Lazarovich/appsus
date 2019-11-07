@@ -11,25 +11,20 @@ export default {
         <section class="email-app flex column align-center space-around">
             <h1>Email App</h1>
             <email-filter @filtered="setFilter"/>
-            <side-nav />
-            <email-list :emails="emailsToShow" @toggleIsRead="toggleIsRead"/>
+            <side-nav :unreadCount="unreadEmails"/>
+            <email-list :emails="emailsToShow"/>
         </section>
     `,
     data() {
         return {
             emails: [],
-            filterBy: null
+            filterBy: null,
         }
     },
     methods: {
         setFilter(filter){    
             this.filterBy = filter  
         },
-        toggleIsRead(id){
-            emailService.toggleIsRead(id)
-                .then((res) => console.log(res)
-                )
-        }
     },
     computed: {
         emailsToShow() {
@@ -42,7 +37,8 @@ export default {
             })
         },
         unreadEmails() {
-            emailService.getUnreadEmails()
+            let unreadCount = emailService.getUnreadEmails()
+            return unreadCount.length
         }
     },
     created() {

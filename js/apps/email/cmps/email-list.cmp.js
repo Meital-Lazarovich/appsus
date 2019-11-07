@@ -7,21 +7,29 @@ export default  {
     template: `
     <section class="emails-list-container">
         <div v-for="email in emails">
-            <router-link :to="'/email/details/' + email.id">
-                <email-preview :class="{bold: !email.isRead}" :email="email" @click.native="handleIsRead(email.id)">
+            
+                <email-preview :class="{bold: !email.isRead}" :email="email" @click.native="isReading = !isReading">
                 </email-preview>
-        </router-link>
+        
+        <div v-if="isReading">{{shortTxt(email.body)}} 
+            <router-link :to="'/email/details/' + email.id">
+                <button>ReadMore</button>
+            </router-link>
+             <button>Delete</button></div>
         </div>
     </section>
     `,
     data() {
         return {
-
+            isReading: false
         }
     },
     methods: {
         handleIsRead(emailId){
             this.$emit('toggleIsRead', emailId)
+        },
+        shortTxt(txt){
+            return `${txt.substring(0, 50)}...`;
         }
     },
     computed: {

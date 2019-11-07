@@ -5,10 +5,11 @@ import {eventBus} from '../../../services/event-bus.service.js'
 
 
 export default {
+    props:['unreadCount'],
     template: `
             <section class="side-nav">
             <router-link to="/email/compose"><button>Compose</button></router-link>
-            <email-status></email-status>
+            <email-status :unreadCount="unreadCount"></email-status>
             </section>
     `,
     data() {
