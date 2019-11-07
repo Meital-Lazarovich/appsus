@@ -2,3 +2,51 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 334px));
 }
+
+.note-list .note-preview img {
+    max-height: 300px;
+    max-width: 300px;
+}
+
+.note-list .note-preview {
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 5px;
+}
+
+.note-list .note-preview .marked {
+    text-decoration: line-through;
+}
+
+.note-list .note-preview input {
+    position: fixed;
+    top: 1000px;
+    left: 1000px;
+}
+
+.note-list .note-preview .todo-note div{
+    border-bottom: 1px solid #b6b6b6;
+    padding: 5px 0;
+}
+
+.note-list .opts button{
+    background-color: #dfdfdf;
+    color: gray;
+    margin-left: 0;
+}
+
+.note-list .note-preview label {
+    padding: 5px 0;
+}
+
+.note-list .color-btns-line {
+    background-color: #b2b2b2;
+    margin-top: 15px;
+}
+
+.note-list .color-btn {
+    font-size: 25px;
+    margin-left: 10px;
+    padding: 0;
+    background-color: transparent;
+}
