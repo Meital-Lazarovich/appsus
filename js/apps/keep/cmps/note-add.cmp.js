@@ -4,12 +4,14 @@
 export default {
     name: 'note-add',
     template: `
-    <section class="note-add flex align-center justify-center">
+    <section class="note-add flex align-center space-between">
         <input type="text" ref="noteInput" :placeholder="inputPlaceholder" @keyup.enter="addNote" v-model="note.data"/>
-        <button @click="changeNoteType('textNote')">TEXT</button>
-        <button @click="changeNoteType('imgNote')">IMG</button>
-        <button @click="changeNoteType('vidNote')">VID</button>
-        <button @click="changeNoteType('todoNote')">LIST</button>
+        <div class="types">
+            <button @click="changeNoteType('textNote')">TEXT</button>
+            <button @click="changeNoteType('imgNote')">IMG</button>
+            <button @click="changeNoteType('vidNote')">VID</button>
+            <button @click="changeNoteType('todoNote')">LIST</button>
+        </div>
     </section>
     `,
     data() {
