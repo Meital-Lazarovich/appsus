@@ -2,6 +2,7 @@
 
 import router from './routes.js'
 import userMsg from './cmps/user-msg.cmp.js';
+import appHeader from './cmps/app-header.cmp.js'
 
 
 new Vue({
@@ -9,12 +10,14 @@ new Vue({
     el: '#appsus',
     template: `
     <section>
+        <app-header></app-header>
         <user-msg></user-msg>
         <router-view></router-view>
     </section>
     `,
     components: {
-        userMsg
+        userMsg,
+        appHeader
     }
 });
 

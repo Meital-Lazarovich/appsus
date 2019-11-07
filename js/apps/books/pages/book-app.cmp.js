@@ -1,7 +1,6 @@
 'use strict';
 
 import {bookService} from '../services/book.service.js'
-import appHeader from '../cmps/app-header.cmp.js'
 import bookFilter from '../cmps/book-filter.cmp.js'
 import bookList from '../cmps/book-list.cmp.js'
 
@@ -10,7 +9,6 @@ export default {
     name: 'book-app',
     template: `
         <section class="book-app">
-            <app-header></app-header>
             <book-filter @filtered="setFilter"></book-filter> 
             <router-link to="/book/add" class="add-book-btn">Add Book</router-link>
             <book-list :books="booksToShow" @selected="selectBook"></book-list>
@@ -52,8 +50,7 @@ export default {
     },
     components: {
         bookFilter,
-        bookList,
-        appHeader
+        bookList
     }
 }
 

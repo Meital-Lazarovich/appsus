@@ -12,7 +12,6 @@ export default {
             <h1>Email App</h1>
             <email-filter @filtered="setFilter"/>
             <side-nav :unreadCount="unreadEmails"/>
-            <email-list :emails="emailsToShow"/>
         </section>
     `,
     data() {

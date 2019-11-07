@@ -10,7 +10,6 @@ export default {
     name: 'keep-app',
     template: `
         <section class="keep-app">
-            <h1>keep it!</h1>
             <note-add @added="addNote"></note-add>
             <note-list :notes="notesToShow" @changed="updateNote"></note-list>
 
