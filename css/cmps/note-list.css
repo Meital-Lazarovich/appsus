@@ -26,6 +26,13 @@
 
 .note-list .note-preview .todo-note div{
     border-bottom: 1px solid #b6b6b6;
+    padding: 5px 0;
+}
+
+.note-list .opts button{
+    background-color: #dfdfdf;
+    color: gray;
+    margin-left: 0;
 }
 
 .note-list .note-preview label {
