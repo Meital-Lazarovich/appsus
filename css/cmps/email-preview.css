@@ -1,7 +1,7 @@
 .email{
     padding: 20px;
     border-top: 1px solid #EA3939;
-    display: flex;
+    background-color: #f0f0f0;
     transition: 0.3s;
 }
 .email:last-child{
@@ -20,5 +20,21 @@
 .email:hover {
     cursor: pointer;
     color: #EA3939;
+    background-color: #f3f3f3;
     box-shadow: 4px 0px 20px -12px rgba(79,79,79,1);    
+}
+
+.star{
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.star:hover{
+    color: gold;
+}
+
+.gold{
+    color:gold
 }

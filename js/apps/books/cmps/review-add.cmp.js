@@ -29,19 +29,19 @@ export default {
     data() {
         return {
             review: {
-                name: 'Books Reader', 
-                rate: 0, 
+                name: 'Books Reader',
+                rate: 0,
                 readAt: null,
-                txt:'Good book!'
+                txt: 'Good book!'
             },
             defaultDate: null
         }
     },
     methods: {
         onSubmit() {
-            let review = {...this.review};
+            let review = { ...this.review };
             this.$emit('reviewed', review);
-            this.review = {name: 'Books Reader', rate: 0, readAt: this.defaultDate, txt:'Good book!'}
+            this.review = { name: 'Books Reader', rate: 0, readAt: this.defaultDate, txt: 'Good book!' }
         },
         updateRate(rate) {
             this.review.rate = rate;
