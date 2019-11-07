@@ -10,30 +10,39 @@
     grid-auto-flow: row;
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
-    grid-auto-rows: 56px;
-}
-
-.note-list .note-preview.selected {
-    border: 1px solid black;
-}
-
-.note-list .note-preview img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: cover;
+    /* grid-auto-rows: 56px; */
+    margin: 0 15px 15px;
 }
 
 .note-list .note-preview {
     border: 1px solid gray;
     padding: 10px;
-    /* margin: 5px; */
     border-radius: 5px;
     cursor: pointer;
-    align-self: start;
+    min-height: 150px;
+    transition: box-shadow .3s;
+}
+
+.note-list .note-preview section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.note-list .note-preview.selected, .note-list .note-preview:hover {
+    box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.5);
+}
+
+.note-list .note-preview img {
+    max-height: 200px;
+    max-width: 200px;
+    object-fit: cover;
 }
 
 .note-list .note-preview p {
-    margin: 0;
+    margin: 0 0 20px;
 }
 
 .note-list .note-preview .marked {
@@ -48,13 +57,19 @@
 
 .note-list .note-preview .todo-note div{
     border-bottom: 1px solid #b6b6b6;
-    padding: 5px 0;
+    padding: 7px 0;
+    width: 100%;
 }
 
 .note-list .opts button{
-    background-color: #dfdfdf;
+    background-color: transparent;
     color: gray;
     margin-left: 0;
+    font-size: 20px;
+}
+
+.note-list .opts button.selected, .note-list .opts button:hover{
+    color: black;
 }
 
 .note-list .note-preview label {
@@ -62,13 +77,16 @@
 }
 
 .note-list .color-btns-line {
-    background-color: #b2b2b2;
-    margin-top: 15px;
+    background-color: #bababa;
+    width: 200px;
+    text-align: center;
+    margin: 0 auto 10px;
+    border-radius: 15px;
 }
 
-.note-list .color-btn {
+.note-list .opts .color-btn {
     font-size: 25px;
-    margin-left: 10px;
+    margin: 0 5px;
     padding: 0;
     background-color: transparent;
 }

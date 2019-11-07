@@ -11,7 +11,7 @@ export default {
     template: `
         <section class="keep-app">
             <note-add @added="addNote"></note-add>
-            <note-list :notes="notesToShow" @changed="updateNote"></note-list>
+            <note-list :notes="notesToShow" @changed="updateNote" @removed='removeNote'></note-list>
 
         </section>
     `,
@@ -28,6 +28,9 @@ export default {
         },
         updateNote(note) {
             keepService.updateNote(note)
+        },
+        removeNote(note) {
+            keepService.removeNote(note)
         }
     },
     computed: {

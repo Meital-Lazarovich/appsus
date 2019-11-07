@@ -7,10 +7,10 @@ export default {
     <section class="note-add flex align-center space-between">
         <input type="text" ref="noteInput" :placeholder="inputPlaceholder" @keyup.enter="addNote" v-model="note.data"/>
         <div class="types">
-            <button @click="changeNoteType('textNote')">TEXT</button>
-            <button @click="changeNoteType('imgNote')">IMG</button>
-            <button @click="changeNoteType('vidNote')">VID</button>
-            <button @click="changeNoteType('todoNote')">LIST</button>
+            <button @click="changeNoteType('textNote')" :class="{selected: note.type === 'textNote'}"><i class="fa fa-font"></i></button>
+            <button @click="changeNoteType('imgNote')" :class="{selected: note.type === 'imgNote'}"><i class="fa fa-image"></i></button>
+            <button @click="changeNoteType('vidNote')" :class="{selected: note.type === 'vidNote'}"><i class="fa fa-youtube"></i></button>
+            <button @click="changeNoteType('todoNote')" :class="{selected: note.type === 'todoNote'}"><i class="fa fa-list"></i></button>
         </div>
     </section>
     `,

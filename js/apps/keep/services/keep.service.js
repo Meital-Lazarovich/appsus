@@ -6,7 +6,8 @@ export const keepService = {
     getNotes,
     addNote,
     getNoteById,
-    updateNote
+    updateNote,
+    removeNote
 }
 
 const NOTES_KEY = 'notes'
@@ -24,8 +25,8 @@ function getNotes() {
 function addNote(note) {
     if (note.type === 'todoNote') {
         let todos = note.data.split(', ')
-        let todosNew = todos.map(todo => ({txt: todo, isDone: false, id: makeId()}))
-        note.data = todosNew
+        let fullTodos = todos.map(todo => ({txt: todo, isDone: false, id: makeId()}))
+        note.data = fullTodos
     }
     var newNote = {
         id: makeId(),
@@ -49,6 +50,14 @@ function updateNote(note) {
     var noteId = note.id
     var noteIdx = gNotes.findIndex(note => note.id === noteId)
     gNotes[noteIdx] = note;
+    storageService.store(NOTES_KEY, gNotes)
+    return Promise.resolve(gNotes);
+}
+
+function removeNote(note) {
+    var noteId = note.id
+    var noteIdx = gNotes.findIndex(note => note.id === noteId)
+    gNotes.splice(noteIdx, 1);
     storageService.store(NOTES_KEY, gNotes)
     return Promise.resolve(gNotes);
 }

@@ -1,7 +1,6 @@
 .note-add {
-    margin: 15px auto;
-    width: 550px;
-    height: 45px;
+    margin: 15px;
+    height: 50px;
     background-color: white;
     border: 1px solid silver;
     padding: 10px;
@@ -12,10 +11,18 @@
     border: none;
     font-size: 18px;
     margin-left: 7px;
+    width: 65%;
 }
 
 .note-add button {
     background-color: transparent;
     color: gray;
     margin-left: 5px;
+    font-size: 18px;
 }
+
+.note-add button.selected, .note-add button:hover {
+    color: black
+}
+
+
