@@ -1,16 +1,18 @@
 'use strict'
 
 import emailPreview from './email-preview.cmp.js'
+import emailService from '../services/email.service.js'
 
-export default  {
+export default {
     props: ['emails'],
     template: `
     <section class="emails-container">
         <email-preview v-for="email in emails"
                         :key="email.id"
                         :class="{bold: !email.isRead}" 
-                        class="email" 
-                        :email="email" 
+                        class="email flex align-center" 
+                        :email="email"
+                        @stared="starEmail"
                          />
 
         
@@ -18,16 +20,22 @@ export default  {
     `,
     data() {
         return {
-            selectedEmail: null 
+            selectedEmail: null
         }
     },
     methods: {
-        handleIsRead(emailId){
+        handleIsRead(emailId) {
             this.$emit('toggleIsRead', emailId)
+        },
+        starEmail(id) {
+            emailService.starEmail(id)
+                .then(res => console.log(res)
+                )
+
         }
     },
     computed: {
-        
+
     },
     components: {
         emailPreview
