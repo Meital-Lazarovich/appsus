@@ -13,6 +13,11 @@ body {
 
 button {
     outline: none;
+    transition: 0.3s;
+}
+
+button:hover{
+    transform: scale(1.05);
 }
 
 a {
@@ -35,4 +40,10 @@ h3 {
 
 input, button, textarea, select {
     outline: none;
+}
+
+.app{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }

@@ -29,13 +29,14 @@ const routes = [
         {
             path: 'inbox',
             component: emailInbox
+        },
+        {
+            path: 'details/:id',
+            component: emailDetails
         }
     ]
     },
-    {
-        path: '/email/details/:id',
-        component: emailDetails
-    },
+    
     {
         path: '/book',
         component: bookApp

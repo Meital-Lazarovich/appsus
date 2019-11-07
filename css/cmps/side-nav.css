@@ -1,0 +1,15 @@
+.side-nav{
+    flex: 0 0 200px;
+    border-right: 1px solid green;
+    flex-direction: column;
+    text-align: center;
+}
+
+.nav-item{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nav-item button {
+    margin-left: 0;
+}

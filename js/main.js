@@ -9,7 +9,7 @@ new Vue({
     router,
     el: '#appsus',
     template: `
-    <section>
+    <section class="app">
         <app-header></app-header>
         <user-msg></user-msg>
         <router-view></router-view>

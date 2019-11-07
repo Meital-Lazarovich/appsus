@@ -6,8 +6,7 @@ import {eventBus} from '../../../services/event-bus.service.js'
 
 export default {
     template: `
-        <section class="email-app flex column align-center space-around">
-            <h1>Email App</h1>
+        <section class="email-app flex">
             <side-nav/>
             <router-view></router-view>
         </section>
