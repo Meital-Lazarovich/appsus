@@ -9,7 +9,7 @@ export default {
     template: `
         <section class="email-inbox flex column">
             <email-filter @filtered="setFilter"/>
-            <email-list :emails="emailsToShow"/>
+            <email-list :emails="emailsToShow" @delete="onDelete"/>
         </section>
     `,
     data() {
@@ -23,6 +23,9 @@ export default {
         setFilter(filter){    
             this.filterBy = filter  
         },
+        onDelete(id){
+            emailService.deleteEmail(id)
+        }
     },
     computed: {
         emailsToShow() {

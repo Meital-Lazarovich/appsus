@@ -6,21 +6,18 @@ export default  {
     props: ['emails'],
     template: `
     <section class="emails-container">
-        <div v-for="email in emails">
-            <email-preview :class="{bold: !email.isRead}" :email="email" @click.native="toggleEmail(email)">
-            </email-preview>
-            <div v-if="isReading && selectedEmail === email">{{shortTxt(email.body)}} 
-                <router-link :to="'/email/details/' + email.id">
-                    <button>ReadMore</button>
-                </router-link>
-                <button>Delete</button>
-            </div>
-        </div>
+        <email-preview v-for="email in emails"
+                        :key="email.id"
+                        :class="{bold: !email.isRead}" 
+                        class="email" 
+                        :email="email" 
+                         />
+
+        
     </section>
     `,
     data() {
         return {
-            isReading: false,
             selectedEmail: null 
         }
     },
@@ -28,12 +25,9 @@ export default  {
         handleIsRead(emailId){
             this.$emit('toggleIsRead', emailId)
         },
-        shortTxt(txt){
-            return `${txt.substring(0, 50)}...`;
-        },
-        toggleEmail(email) {
-            this.isReading = !this.isReading
-            this.selectedEmail = email
+        
+        handleDelete(emailId) {
+            this.$emit('delete', emailId)
         }
     },
     computed: {
