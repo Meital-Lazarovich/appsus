@@ -5,7 +5,7 @@ import emailPreview from './email-preview.cmp.js'
 export default  {
     props: ['emails'],
     template: `
-    <section class="emails-list-container">
+    <section class="emails-container">
         <div v-for="email in emails">
             <email-preview :class="{bold: !email.isRead}" :email="email" @click.native="toggleEmail(email)">
             </email-preview>
