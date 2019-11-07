@@ -1,6 +1,12 @@
 .note-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 334px));
+    grid-auto-flow: row;
+    margin: 0 auto;
+}
+
+.note-list .note-preview.selected {
+    border: 1px solid black;
 }
 
 .note-list .note-preview img {
@@ -12,6 +18,13 @@
     border: 1px solid gray;
     padding: 10px;
     margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: start;
+}
+
+.note-list .note-preview p {
+    margin: 0;
 }
 
 .note-list .note-preview .marked {
