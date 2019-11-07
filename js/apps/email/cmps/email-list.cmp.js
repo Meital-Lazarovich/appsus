@@ -24,10 +24,6 @@ export default  {
     methods: {
         handleIsRead(emailId){
             this.$emit('toggleIsRead', emailId)
-        },
-        
-        handleDelete(emailId) {
-            this.$emit('delete', emailId)
         }
     },
     computed: {

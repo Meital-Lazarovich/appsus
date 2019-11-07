@@ -19,6 +19,6 @@
 
 .email:hover {
     cursor: pointer;
-    background-color: #dbd9d9;
     color: #EA3939;
+    box-shadow: 4px 0px 20px -12px rgba(79,79,79,1);    
 }
