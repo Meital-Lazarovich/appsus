@@ -9,7 +9,8 @@ export const keepService = {
     updateNotes,
     removeNote,
     pinNote,
-    unpinNote
+    unpinNote,
+    getTodos
 }
 
 const NOTES_KEY = 'notes'
@@ -25,21 +26,15 @@ function getNotes() {
 }
 
 function addNote(note) {
-    console.log('note', note);
-    console.log('type of note data', typeof note.data);
     gNotes = storageService.load(NOTES_KEY)
-    if (note.type === 'todoNote' && typeof note.data === 'string') {
-        let todos = note.data.split(', ')
-        let fullTodos = todos.map(todo => ({txt: todo, isDone: false, id: makeId()}))
-        note.data = fullTodos
-    }
     var newNote = {
         id: makeId(),
         type: note.type,
-        data: note.data,
+        data: {typed: note.data},
         isPinned: false,
         color: note.color
     }
+    if (note.type === 'todoNote' && typeof note.data.typed === 'string') getTodos(newNote);
     gNotes.unshift(newNote)
     storageService.store(NOTES_KEY, gNotes)
     gNotes.forEach(note => {
@@ -91,49 +86,58 @@ function unpinNote(note) {
     return Promise.resolve(gNotes);
 }
 
+function getTodos(note) {
+    let todos = note.data.typed.split(', ')
+    let fullTodos = todos.map(todo => ({txt: todo, isDone: false, id: makeId()}))
+    note.data.todos = fullTodos
+}
+
 var gNotes = [
     {
         id: 'jkje8S',
         type: 'vidNote',
-        data: 'https://www.youtube.com/watch?v=fyvmLRmkRaU',
+        data: {typed: 'https://www.youtube.com/watch?v=fyvmLRmkRaU'},
         isPinned: false,
         color: 'white'
     },
     {
         id: '2A3d',
         type: 'textNote',
-        data: `MOJITO RECIPE: 
-        2 parts Bacardi Carta Blanca
-        ½ fresh lime
-        12 fresh mint leaves
-        Dash of soda water
-        Crushed ice
-        To Garnish: Sprig of Fresh Mint`,
+        data: {typed: `MOJITO RECIPE:
+        2 parts white rum,
+        ½ fresh lime,
+        12 fresh mint leaves,
+        Dash of soda water,
+        Crushed ice.
+        To Garnish: Sprig of Fresh Mint`},
         isPinned: false,
         color: 'lemonchiffon'
     },
     {
         id: '92Pq',
         type: 'imgNote',
-        data: 'https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg',
+        data: {typed: 'https://s.abcnews.com/images/US/160825_vod_orig_historyofdogs_16x9_992.jpg'},
         isPinned: false,
         color: 'pink'
     },
     {
         id: '204sK',
         type: 'todoNote',
-        data: [
-            {
-                txt: 'Buy fresh limes',
-                isDone: true,
-                id: '99djes'
-            },
-            {
-                txt: 'Take the dog for a walk',
-                isDone: false,
-                id: 'iqksO8a'
-            }
-        ],
+        data: {
+            typed: 'Buy fresh limes, Take the dog for a walk',
+            todos: [
+                {
+                    txt: 'Buy fresh limes',
+                    isDone: true,
+                    id: '99djes'
+                },
+                {
+                    txt: 'Take the dog for a walk',
+                    isDone: false,
+                    id: 'iqksO8a'
+                }
+            ]
+        },
         isPinned: false,
         color: 'lightcyan'
     }

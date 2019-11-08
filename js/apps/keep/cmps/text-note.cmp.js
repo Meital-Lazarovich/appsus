@@ -5,8 +5,15 @@ export default {
     props: ['data'],
     template: `
         <section class="text-note">
-            <p>{{data}}</p>
+            <p>{{data.typed}}</p>
             <i class="fa fa-font"></i>
         </section>
     `,
+    methods: {
+        updateNoteData() {
+            var isDone = !todo.isDone
+            todo.isDone = isDone
+            this.$emit('updated');
+        }
+    }
 }

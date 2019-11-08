@@ -11,12 +11,14 @@ export default {
     template: `
     <section class="note-list">
         <div class="note-preview text-center flex column space-between" v-for="(note, idx) in notes" 
-            :key="note.id" :style="{'background-color': note.color}" @click="toggleSelectedNote(note)" 
+            :key="note.id" :style="{'background-color': note.color}" @click="selectNote(note)" 
             :class="{selected: note === selectedNote}">
             <img class="note-pin-img" v-if="!!note.isPinned" src="../../img/pin.png" 
                 @click.stop="togglePinNote(note)"/>
-            <component :is="note.type"  :data="note.data" :note="note" @updated="updateNoteData"></component>
+            <component :is="note.type" :data="note.data" @updated="updateNotes"></component>
             <div class="opts" v-if="selectedNote === note">
+                <input type="text" v-if="openedProp === 'edit'" v-model="note.data.typed" 
+                    @keyup.enter="editNote(note)" ref="editInput"/>
                 <div class="color-btns-line text-center flex align-center space-around">
                     <button v-if="openedProp === 'color'" class="color-btn" 
                     @click.stop="changeColor(color, note)" v-for="color in colors" 
@@ -24,8 +26,10 @@ export default {
                 </div>
                 <button @click.stop="togglePinNote(note)" :class="{selected: !!note.isPinned}">
                     <i class="fa fa-thumb-tack"></i></button>
-                <button @click.stop="openProp('color')" :class="{selected: openedProp === 'color'}">
+                <button @click.stop="toggleProp('color')" :class="{selected: openedProp === 'color'}">
                     <i class="fa fa-paint-brush"></i></button>
+                <button @click.stop="toggleProp('edit')" :class="{selected: openedProp === 'edit'}">
+                    <i class="fa fa-edit"></i></button>
                 <button @click.stop="copyNote(note)"><i class="fa fa-copy"></i></button>
                 <button @click.stop="removeNote(note)"><i class="fa fa-trash"></i></button>
             </div>
@@ -40,16 +44,18 @@ export default {
         }
     },
     methods: {
-        toggleSelectedNote(note) {
-            this.selectedNote = (this.selectedNote === note) ? null : note
-            this.openedProp = null;
+        selectNote(note) {
+            this.selectedNote = note
         },
-        openProp(prop) {
-            this.openedProp = prop
+        toggleProp(prop) {
+            if (this.openedProp === prop) this.cleanSelected()
+            else this.openedProp = prop
+            // if (prop === 'edit') this.$refs.editInput.focus();
         },
         changeColor(color, note) {
             note.color = color
             this.updateNotes()
+            this.cleanSelected()
         },
         updateNotes() {
             this.$emit('changed');
@@ -69,13 +75,14 @@ export default {
             this.openedProp = null;
         },
         copyNote(note) {
-            var noteToAdd = {type: note.type, data: note.data, color: note.color}
+            var noteToAdd = {type: note.type, data: note.data.typed, color: note.color}
             this.$emit('added', noteToAdd);
             this.cleanSelected()
         },
-        updateNoteData(data, note) {
-            note.data = data;
-            this.updateNotes()
+        editNote(note) {
+            this.cleanSelected()
+            if (note.type === 'todoNote') this.$emit('editedTodo', note);
+            else this.updateNotes()
         }
     },
     components: {

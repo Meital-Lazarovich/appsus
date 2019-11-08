@@ -5,7 +5,8 @@ export default {
     name: 'note-add',
     template: `
     <section class="note-add flex align-center space-between">
-        <input type="text" ref="noteInput" :placeholder="inputPlaceholder" @keyup.enter="addNote" v-model="note.data"/>
+        <input type="text" ref="noteInput" :placeholder="inputPlaceholder" @keyup.enter="addNote" 
+            v-model="note.data"/>
         <div class="types">
             <button @click="changeNoteType('textNote')" :class="{selected: note.type === 'textNote'}">
                 <i class="fa fa-font"></i>

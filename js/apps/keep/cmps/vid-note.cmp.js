@@ -11,7 +11,7 @@ export default {
     `,
     computed: {
         vidUrl() {
-            var url = this.data;
+            var url = this.data.typed;
             var vidId = url.substr(url.indexOf('?v=') + 3)
             return `https://www.youtube.com/embed/${vidId}`
         }
