@@ -6,7 +6,7 @@ export const keepService = {
     getNotes,
     addNote,
     getNoteById,
-    updateNote,
+    updateNotes,
     removeNote,
     pinNote,
     unpinNote
@@ -54,11 +54,7 @@ function getNoteById(noteId) {
     return Promise.resolve(note);
 }
 
-function updateNote(note) {
-    gNotes = storageService.load(NOTES_KEY);
-    var noteId = note.id
-    var noteIdx = gNotes.findIndex(note => note.id === noteId)
-    gNotes[noteIdx] = note;
+function updateNotes() {
     storageService.store(NOTES_KEY, gNotes);
     return Promise.resolve(gNotes);
 }

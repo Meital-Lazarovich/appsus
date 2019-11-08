@@ -18,8 +18,9 @@
 .note-add button {
     background-color: transparent;
     color: gray;
-    margin-left: 5px;
+    margin: 0;
     font-size: 18px;
+    padding: 5px;
 }
 
 .note-add button.selected, .note-add button:hover {

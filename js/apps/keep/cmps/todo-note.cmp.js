@@ -2,7 +2,7 @@
 
 export default {
     name: 'todo-note',
-    props: ['data'],
+    props: ['data', 'note'],
     template: `
         <section class="todo-note">
             <div v-for="todo in data">
@@ -16,6 +16,7 @@ export default {
         toggleIsDone(todo) {
             var isDone = !todo.isDone
             todo.isDone = isDone
+            this.$emit('updated', this.data, this.note);
         }
     }
 }
