@@ -103,13 +103,7 @@ var gNotes = [
     {
         id: '2A3d',
         type: 'textNote',
-        data: {typed: `MOJITO RECIPE:
-        2 parts white rum,
-        ½ fresh lime,
-        12 fresh mint leaves,
-        Dash of soda water,
-        Crushed ice.
-        To Garnish: Sprig of Fresh Mint`},
+        data: {typed: `MOJITO RECIPE: 2 parts white rum, ½ fresh lime,12 fresh mint leaves, Dash of soda water, Crushed ice. To Garnish: Sprig of Fresh Mint`},
         isPinned: false,
         color: 'lemonchiffon'
     },

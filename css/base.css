@@ -43,3 +43,9 @@ input, button, textarea, select {
     display: flex;
     flex-direction: column;
 }
+
+textarea {
+    font-size: inherit;
+    font-family: inherit;
+    resize: none;
+}

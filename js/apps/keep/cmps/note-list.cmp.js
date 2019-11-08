@@ -9,16 +9,17 @@ export default {
     name: 'note-list',
     props: ['notes'],
     template: `
-    <section class="note-list">
+    <section class="note-list" @click="cleanSelected">
         <div class="note-preview text-center flex column space-between" v-for="(note, idx) in notes" 
-            :key="note.id" :style="{'background-color': note.color}" @click="selectNote(note)" 
+            :key="note.id" :style="{'background-color': note.color}" @click.stop="selectNote(note)" 
             :class="{selected: note === selectedNote}">
-            <img class="note-pin-img" v-if="!!note.isPinned" src="../../img/pin.png" 
+            <img class="note-pin-img" v-if="!!note.isPinned && openedProp !== 'edit'" src="../../img/pin.png" 
                 @click.stop="togglePinNote(note)"/>
             <component :is="note.type" :data="note.data" @updated="updateNotes"></component>
             <div class="opts" v-if="selectedNote === note">
-                <input type="text" v-if="openedProp === 'edit'" v-model="note.data.typed" 
-                    @keyup.enter="editNote(note)" ref="editInput"/>
+                <textarea type="text" v-if="openedProp === 'edit'" v-model="note.data.typed" 
+                    @keyup.enter="editNote(note)" ref="editInput" 
+                    :style="{'background-color': note.color}"></textarea>
                 <div class="color-btns-line text-center flex align-center space-around">
                     <button v-if="openedProp === 'color'" class="color-btn" 
                     @click.stop="changeColor(color, note)" v-for="color in colors" 
