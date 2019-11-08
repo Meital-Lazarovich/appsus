@@ -1,6 +1,7 @@
 'use strict'
 
 import emailService from '../services/email.service.js'
+import { eventBus } from '../../../services/event-bus.service.js'
 
 export default { 
     props:'',
@@ -12,7 +13,7 @@ export default {
             <input type="email" placeholder="To" v-model.trim="email.to"/>
             <input type="text" placeholder="Subject" v-model.trim="email.subject"/>
             <textarea v-model="email.body" cols="30" rows="5"></textarea>
-            <button @click.prevent="handleEmail()">Send</button>
+            <router-link to="/email/inbox"><button @click="handleEmail()">Send</button></router-link>
             </form>
         </section>
     
@@ -29,9 +30,20 @@ export default {
     },
     methods: {
         handleEmail() {
+            if (this.$route.params.id) this.email.subject = 'Re: '.concat(this.email.subject)
             emailService.addEmail(this.email)
-                .then(res => {console.log(res)}
+                .then(() => {eventBus.$emit('show-msg', {txt:'Email Sent', type: 'success'})} 
                 )
+        }
+    },
+    created() {
+        const emailId = this.$route.params.id;
+        if (emailId) {
+                emailService.findEmail(emailId)
+                    .then(email => {
+                        this.email.subject = email.subject;
+                        this.email.body = email.body;
+                    })
         }
     }
 }

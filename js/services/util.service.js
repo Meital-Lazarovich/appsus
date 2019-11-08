@@ -8,3 +8,12 @@ export function makeId(length=7) {
     return txt;
 }
 
+export function sortDate(a, b) {
+    return b.sentAt - a.sentAt;
+  }
+
+export function sortSubjects(a, b){
+    if(a.subject > b.subject)  return -1; 
+    if(a.subject < b.subject)  return 1; 
+    return 0;
+}

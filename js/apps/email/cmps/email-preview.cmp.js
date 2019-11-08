@@ -12,9 +12,17 @@ export default {
             <span>{{email.subject}}</span> - 
             <span class="prev-txt">{{prevTxt(email.body)}}...</span>
         </div>
+        <div class="read-btns">
+            <button v-if="!email.isRead" @click.stop="handleMarkAs">Mark as Read</button>
+            <button v-else @click.stop="email.isRead = !email.isRead">Mark as Unread</button>
+        </div>
+        <div class="email-date">{{handleDate(email.sentAt)}}</div>
         <div class="more-info" v-if="isReading">{{shortTxt(email.body)}}
             <router-link :to="'/email/details/' + email.id">
                 <button>ReadMore</button>
+            </router-link>
+            <router-link :to="'/email/compose/' + email.id">
+                <button>Replpy</button>
             </router-link>
             <button @click.stop="handleDelete(email.id)">Delete</button>
         </div>  
@@ -43,7 +51,16 @@ export default {
         onStarClick() {
             this.$emit('stared', this.email.id)
             this.isStared = !this.isStared
+        },
+        handleDate(timeStamp) {
+            let date = '' + new Date(timeStamp)
+            return date.substring(0, 15)
+        },
+        handleMarkAs(){
+            this.email.isRead = !this.email.isRead
+            this.$emit('markAs', this.email.id)
         }
+        
     },
     computed: {
 

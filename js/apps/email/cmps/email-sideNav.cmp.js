@@ -9,7 +9,7 @@ export default {
     template: `
             <section class="side-nav">
                 <div class="nav-item"><router-link to="/email/compose"><button>Compose</button></router-link></div>
-                <div class="nav-item"><router-link to="/email/inbox"><button class="nav-btn">Inbox <email-status class="nav-item" :unreadCount="unreadCount"></email-status></button></router-link></div>
+                <div class="nav-item"><router-link to="/email/inbox"><button class="nav-btn" @click="onInbox">Inbox <email-status class="nav-item" :unreadCount="unreadCount"></email-status></button></router-link></div>
                 <div class="nav-item"><button class="nav-btn" @click="onStared">Stared Emails</button></div>
                 
             </section>
@@ -21,7 +21,10 @@ export default {
     },
     methods: {
         onStared() {
-            // eventBus.$emit('showStared')
+            eventBus.$emit('showStared')
+        },
+        onInbox() {
+            eventBus.$emit('inbox')
         }
     },
     computed: {

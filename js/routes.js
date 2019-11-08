@@ -23,7 +23,7 @@ const routes = [
         component: emailApp,
         children: [
             {
-            path: 'compose',
+            path: 'compose/:id?',
             component: emailCompose
         },
         {

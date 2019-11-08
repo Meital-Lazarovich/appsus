@@ -4,19 +4,25 @@ export default {
         <h2>Search</h2>
         <input type="text" class="filter-by" 
         placeholder="By Subject" v-model="filterBy.subject" @input="setFilterBy"/>
-        <div class="sort flex">
+        <div class="filter-btns flex">
             <button @click="showAll">All</button>
             <button @click="showUnread">Unread</button>
             <button @click="showRead">Read</button>
         </div>
+        <select name="" id="" class="sort-by" v-model="sortBy" @change="sort">
+            <option value="">No Sort</option>
+            <option value="date">Date</option>
+            <option value="Subject">Subject</option>
+        </select>
     </section>
     `,
     data() {
         return {
             filterBy: {
                 subject : '',
-                isRead: false
-            }
+                isRead: false,
+            },
+            sortBy: ''
         }
     },
     methods: {
@@ -34,6 +40,12 @@ export default {
         showRead(){
             this.filterBy.isRead = true;
             this.$emit('filtered', this.filterBy)
+        },
+        sort(){
+            this.$emit('sort', this.sortBy);
         }
+    },
+    computed: {
+        
     }
 }

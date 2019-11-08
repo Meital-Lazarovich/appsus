@@ -38,3 +38,8 @@
 .gold{
     color:gold
 }
+
+.email-date{
+    position: absolute;
+    right: 15px;
+}

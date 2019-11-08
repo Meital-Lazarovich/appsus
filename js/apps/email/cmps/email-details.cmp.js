@@ -10,6 +10,9 @@ export default  {
        <div>Email Subject : {{emailToShow.subject}}</div>
        <div>Sent At : {{handleEmailDate(emailToShow.sentAt)}}</div>
        <div>Email Body : {{emailToShow.body}}</div>
+       <router-link :to="'/email/compose/' + emailToShow.id">
+                <button>Replpy</button>
+            </router-link>
     </section>
     `,
     data() {

@@ -12,7 +12,8 @@ export default {
     toggleIsRead,
     getUnreadEmails,
     deleteEmail,
-    starEmail
+    starEmail,
+    markAs
 }
 
 let gEmails = [
@@ -21,7 +22,7 @@ let gEmails = [
         subject: 'Postion Class',
         body: 'Snape is a maniac Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget gravida cum sociis natoque penatibus et magnis dis. Libero enim sed faucibus turpis in eu. Dui faucibus in ornare quam viverra orci sagittis. Nibh praesent tristique magna sit amet.',
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: 1554508800555,
         stared: false
     },
     {
@@ -29,7 +30,7 @@ let gEmails = [
         subject: 'How are you?',
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget gravida cum sociis natoque penatibus et magnis dis. Libero enim sed faucibus turpis in eu. Dui faucibus in ornare quam viverra orci sagittis. Nibh praesent tristique magna sit amet.',
         isRead: true,
-        sentAt: 1551133930594,
+        sentAt: 1518998400126,
         stared: false
     },
     {
@@ -102,4 +103,8 @@ function starEmail(id) {
     email.stared = !email.stared;
     storageService.store(STORAGE_KEY, gEmails)
     return Promise.resolve(email)
+}
+
+function markAs() {
+    storageService.store(STORAGE_KEY, gEmails)
 }

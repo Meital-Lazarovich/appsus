@@ -13,6 +13,7 @@ export default {
                         class="email flex align-center" 
                         :email="email"
                         @stared="starEmail"
+                        @markAs="onMarkAs"
                          />
 
         
@@ -31,7 +32,9 @@ export default {
             emailService.starEmail(id)
                 .then(res => console.log(res)
                 )
-
+        },
+        onMarkAs(id){
+            emailService.markAs(id)
         }
     },
     computed: {
