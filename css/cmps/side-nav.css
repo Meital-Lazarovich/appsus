@@ -26,3 +26,9 @@
 .nav-item .nav-btn:hover{
     background-color: #EA3939;
 }
+
+.fa-plus{
+    font-size: large;
+    position: relative;
+    top: 2px;
+}

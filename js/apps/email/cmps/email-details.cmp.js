@@ -5,7 +5,7 @@ import emailService from '../services/email.service.js'
 export default  {
     props: [],
     template: `
-    <section class="emails-list-container">
+    <section class="emails-details-container flex column justify-center space-around align-center">
        <h1>details</h1>
        <div>Email Subject : {{emailToShow.subject}}</div>
        <div>Sent At : {{handleEmailDate(emailToShow.sentAt)}}</div>

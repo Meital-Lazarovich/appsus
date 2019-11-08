@@ -25,10 +25,8 @@
 }
 
 .star{
-    font-size: 1.6rem;
-    font-weight: 900;
+    font-size: 1.2rem;
     margin-right: 10px;
-    margin-bottom: 5px;
 }
 
 .star:hover{
