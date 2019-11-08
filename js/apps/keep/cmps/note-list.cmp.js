@@ -26,6 +26,7 @@ export default {
                     <i class="fa fa-thumb-tack"></i></button>
                 <button @click.stop="openProp('color')" :class="{selected: openedProp === 'color'}">
                     <i class="fa fa-paint-brush"></i></button>
+                <button @click.stop="copyNote(note)"><i class="fa fa-copy"></i></button>
                 <button @click.stop="removeNote(note)"><i class="fa fa-trash"></i></button>
             </div>
         </div>
@@ -66,6 +67,11 @@ export default {
         cleanSelected() {
             this.selectedNote = null;
             this.openedProp = null;
+        },
+        copyNote(note) {
+            var noteToAdd = {type: note.type, data: note.data, color: note.color}
+            this.$emit('added', noteToAdd);
+            this.cleanSelected()
         }
     },
     components: {

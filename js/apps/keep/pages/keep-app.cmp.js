@@ -12,7 +12,7 @@ export default {
         <section class="keep-app">
             <note-add @added="addNote"></note-add>
             <note-list :notes="notesToShow" @changed="updateNote" @removed="removeNote" 
-            @pinned="pinNote" @unpinned="unpinNote"></note-list>
+            @pinned="pinNote" @unpinned="unpinNote" @added="addNote"></note-list>
 
         </section>
     `,
