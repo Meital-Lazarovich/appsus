@@ -6,7 +6,7 @@ export default {
     props: ['email'],
     template: `
     <section class="email-prev-container" @click="toggleEmail">
-        <div class="star" :class="{gold:isStared}" @click.stop="onStarClick">☆</div>
+        <div class="star" :class="{gold:isStared}" @click.stop="onStarClick"><i class="fa fa-star"></i></div>
         <div>Me</div> 
         <div class="email-content">
             <span>{{email.subject}}</span> - 
@@ -19,12 +19,12 @@ export default {
         <div class="email-date">{{handleDate(email.sentAt)}}</div>
         <div class="more-info" v-if="isReading">{{shortTxt(email.body)}}
             <router-link :to="'/email/details/' + email.id">
-                <button>ReadMore</button>
+                <button><i class="fa fa-expand"></i></button>
             </router-link>
             <router-link :to="'/email/compose/' + email.id">
-                <button>Replpy</button>
+                <button><i class="fa fa-reply"></i></button>
             </router-link>
-            <button @click.stop="handleDelete(email.id)">Delete</button>
+            <button @click.stop="handleDelete(email.id)"><i class="fa fa-trash"></i></button>
         </div>  
     </section>
     `,
