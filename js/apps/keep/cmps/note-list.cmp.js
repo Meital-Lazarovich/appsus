@@ -15,7 +15,7 @@ export default {
             :class="{selected: note === selectedNote}">
             <img class="note-pin-img" v-if="!!note.isPinned" src="../../img/pin.png" 
                 @click.stop="togglePinNote(note)"/>
-            <component :is="note.type"  :data="note.data"></component>
+            <component :is="note.type"  :data="note.data" :note="note" @updated="updateNoteData"></component>
             <div class="opts" v-if="selectedNote === note">
                 <div class="color-btns-line text-center flex align-center space-around">
                     <button v-if="openedProp === 'color'" class="color-btn" 
@@ -26,6 +26,7 @@ export default {
                     <i class="fa fa-thumb-tack"></i></button>
                 <button @click.stop="openProp('color')" :class="{selected: openedProp === 'color'}">
                     <i class="fa fa-paint-brush"></i></button>
+                <button @click.stop="copyNote(note)"><i class="fa fa-copy"></i></button>
                 <button @click.stop="removeNote(note)"><i class="fa fa-trash"></i></button>
             </div>
         </div>
@@ -48,10 +49,10 @@ export default {
         },
         changeColor(color, note) {
             note.color = color
-            this.updateNote(note)
+            this.updateNotes()
         },
-        updateNote(note) {
-            this.$emit('changed', note);
+        updateNotes() {
+            this.$emit('changed');
             this.cleanSelected()
         },
         removeNote(note) {
@@ -66,6 +67,15 @@ export default {
         cleanSelected() {
             this.selectedNote = null;
             this.openedProp = null;
+        },
+        copyNote(note) {
+            var noteToAdd = {type: note.type, data: note.data, color: note.color}
+            this.$emit('added', noteToAdd);
+            this.cleanSelected()
+        },
+        updateNoteData(data, note) {
+            note.data = data;
+            this.updateNotes()
         }
     },
     components: {

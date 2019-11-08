@@ -11,8 +11,8 @@ export default {
     template: `
         <section class="keep-app">
             <note-add @added="addNote"></note-add>
-            <note-list :notes="notesToShow" @changed="updateNote" @removed="removeNote" 
-            @pinned="pinNote" @unpinned="unpinNote"></note-list>
+            <note-list :notes="notesToShow" @changed="updateNotes" @removed="removeNote" 
+            @pinned="pinNote" @unpinned="unpinNote" @added="addNote"></note-list>
 
         </section>
     `,
@@ -27,8 +27,8 @@ export default {
                 .then(() => keepService.getNotes())
                 .then(notes => this.notes = notes)
         },
-        updateNote(note) {
-            keepService.updateNote(note)
+        updateNotes() {
+            keepService.updateNotes()
                 .then(() => keepService.getNotes())
                 .then(notes => this.notes = notes)
         },

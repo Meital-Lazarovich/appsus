@@ -6,7 +6,7 @@ export const keepService = {
     getNotes,
     addNote,
     getNoteById,
-    updateNote,
+    updateNotes,
     removeNote,
     pinNote,
     unpinNote
@@ -25,8 +25,10 @@ function getNotes() {
 }
 
 function addNote(note) {
+    console.log('note', note);
+    console.log('type of note data', typeof note.data);
     gNotes = storageService.load(NOTES_KEY)
-    if (note.type === 'todoNote') {
+    if (note.type === 'todoNote' && typeof note.data === 'string') {
         let todos = note.data.split(', ')
         let fullTodos = todos.map(todo => ({txt: todo, isDone: false, id: makeId()}))
         note.data = fullTodos
@@ -36,7 +38,7 @@ function addNote(note) {
         type: note.type,
         data: note.data,
         isPinned: false,
-        color: 'white'
+        color: note.color
     }
     gNotes.unshift(newNote)
     storageService.store(NOTES_KEY, gNotes)
@@ -52,11 +54,7 @@ function getNoteById(noteId) {
     return Promise.resolve(note);
 }
 
-function updateNote(note) {
-    gNotes = storageService.load(NOTES_KEY);
-    var noteId = note.id
-    var noteIdx = gNotes.findIndex(note => note.id === noteId)
-    gNotes[noteIdx] = note;
+function updateNotes() {
     storageService.store(NOTES_KEY, gNotes);
     return Promise.resolve(gNotes);
 }

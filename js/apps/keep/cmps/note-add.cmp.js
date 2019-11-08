@@ -26,7 +26,8 @@ export default {
         return {
             note: {
                 type: '',
-                data: ''
+                data: '',
+                color: 'white'
             }
         }
     },
