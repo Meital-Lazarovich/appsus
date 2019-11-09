@@ -7,15 +7,15 @@ export default {
     template: `
     <section class="email-prev-container" @click="toggleEmail">
         <div class="flex justify-center">
-            <div class="star" :class="{gold:isStared}" @click.stop="onStarClick"><i class="fa fa-star"></i></div>
+        <div class="read-btns">
+                <div class="mark-as-btn" v-if="!email.isRead" @click.stop="handleMarkAs" title="Mark as read"><i class="fa fa-envelope-open"></i></div>
+                <div class="mark-as-btn" v-else @click.stop="handleMarkAs" title="Mark as unread"><i class="fa fa-envelope"></i></div>
+            </div>
+            <div class="star" :class="{gold:isStared}" title="Star email" @click.stop="onStarClick"><i class="fa fa-star"></i></div>
             <div>Me</div> 
             <div class="email-content">
                 <span>{{email.subject}}</span> - 
                 <span class="prev-txt">{{prevTxt(email.body)}}...</span>
-            </div>
-            <div class="read-btns">
-                <button class="mark-as-btn" v-if="!email.isRead" @click.stop="handleMarkAs">Mark as Read</button>
-                <button class="mark-as-btn" v-else @click.stop="handleMarkAs">Mark as Unread</button>
             </div>
             <div class="email-date">{{handleDate(email.sentAt)}}</div>
         </div>
