@@ -27,6 +27,7 @@ export default {
                 <button title="Reply" @click="updateRead(email.id)"><i class="fa fa-reply"></i></button>
             </router-link>
             <button title="Delete" @click.stop="handleDelete(email.id)"><i class="fa fa-trash"></i></button>
+            <button title="Save as a note" @click.stop="saveNote"><i class="fa fa-sticky-note"></i></button>
         </div>  
     </section>
     `,
@@ -63,6 +64,13 @@ export default {
         updateRead(id){
             this.email.isRead = true;
             this.$emit('read', id)
+        },
+        goToNotes(){
+            return Promise.resolve(this.$router.push('/keep'))
+        },
+        saveNote(){
+            this.goToNotes()
+                .then(() => eventBus.$emit('savedMail', `${this.email.subject.toUpperCase()}: ${this.email.body}`))
         }
         
     },
