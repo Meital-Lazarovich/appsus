@@ -4,6 +4,7 @@ import textNote from './text-note.cmp.js'
 import imgNote from './img-note.cmp.js'
 import todoNote from './todo-note.cmp.js'
 import vidNote from './vid-note.cmp.js'
+import {eventBus} from '../../../services/event-bus.service.js'
 
 export default {
     name: 'note-list',
@@ -33,6 +34,7 @@ export default {
                     <i class="fa fa-edit"></i></button>
                 <button @click.stop="copyNote(note)"><i class="fa fa-copy"></i></button>
                 <button @click.stop="removeNote(note)"><i class="fa fa-trash"></i></button>
+                <button @click.stop="sendNote(note)"><i class="fa fa-paper-plane"></i></button>
             </div>
         </div>
     </section>
@@ -84,6 +86,9 @@ export default {
             this.cleanSelected()
             if (note.type === 'todoNote') this.$emit('editedTodo', note);
             else this.updateNotes()
+        },
+        sendNote(note) {
+            eventBus.$emit('sentNote', note.data.typed)
         }
     },
     components: {
