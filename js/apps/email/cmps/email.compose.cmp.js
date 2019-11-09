@@ -34,6 +34,10 @@ export default {
             emailService.addEmail(this.email)
                 .then(() => {eventBus.$emit('show-msg', {txt:'Email Sent', type: 'success'})} 
                 )
+        },
+        sendNote(note) {
+            console.log(note);
+            
         }
     },
     created() {
@@ -45,5 +49,6 @@ export default {
                         this.email.body = email.body;
                     })
         }
+        eventBus.$on('sentNote', this.sendNote)
     }
 }
