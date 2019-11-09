@@ -13,7 +13,7 @@ export function sortDate(a, b) {
   }
 
 export function sortSubjects(a, b){
-    if(a.subject > b.subject)  return -1; 
-    if(a.subject < b.subject)  return 1; 
+    if(a.subject > b.subject)  return 1; 
+    if(a.subject < b.subject)  return -1; 
     return 0;
 }
