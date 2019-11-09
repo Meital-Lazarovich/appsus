@@ -24,17 +24,17 @@ export default {
                 <div class="color-btns-line text-center flex align-center space-around">
                     <button v-if="openedProp === 'color'" class="color-btn" 
                     @click.stop="changeColor(color, note)" v-for="color in colors" 
-                    :style="{'color': color}">⬤</button> 
+                    :style="{'color': color}" :title="color">⬤</button> 
                 </div>
-                <button @click.stop="togglePinNote(note)" :class="{selected: !!note.isPinned}">
+                <button @click.stop="togglePinNote(note)" :class="{selected: !!note.isPinned}" title="pin note">
                     <i class="fa fa-thumb-tack"></i></button>
-                <button @click.stop="toggleProp('color')" :class="{selected: openedProp === 'color'}">
-                    <i class="fa fa-paint-brush"></i></button>
-                <button @click.stop="toggleProp('edit')" :class="{selected: openedProp === 'edit'}">
+                <button @click.stop="toggleProp('color')" :class="{selected: openedProp === 'color'}" 
+                    title="change note color"><i class="fa fa-paint-brush"></i></button>
+                <button @click.stop="toggleProp('edit')" :class="{selected: openedProp === 'edit'}" title="edit note">
                     <i class="fa fa-edit"></i></button>
-                <button @click.stop="copyNote(note)"><i class="fa fa-copy"></i></button>
-                <button @click.stop="removeNote(note)"><i class="fa fa-trash"></i></button>
-                <router-link to="/email/compose"><button @click.stop="sendNote(note)">
+                <button @click.stop="copyNote(note)" title="copy note"><i class="fa fa-copy"></i></button>
+                <button @click.stop="removeNote(note)" title="delete note"><i class="fa fa-trash"></i></button>
+                <router-link to="/email/compose"><button @click.stop="sendNote(note)" title="copy note">
                     <i class="fa fa-paper-plane"></i></button>
                 </router-link>
             </div>
