@@ -9,7 +9,7 @@ export default {
     <section class="emails-container">
         <email-preview v-for="email in emails"
                         :key="email.id"
-                        :class="{bold: !email.isRead}" 
+                        :class="{read: !email.isRead}" 
                         class="email flex column" 
                         :email="email"
                         @stared="starEmail"
