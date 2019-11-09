@@ -10,10 +10,11 @@ export default {
         <email-preview v-for="email in emails"
                         :key="email.id"
                         :class="{bold: !email.isRead}" 
-                        class="email flex align-center" 
+                        class="email flex column" 
                         :email="email"
                         @stared="starEmail"
                         @markAs="onMarkAs"
+                        @read="onRead"
                          />
 
         
@@ -25,9 +26,6 @@ export default {
         }
     },
     methods: {
-        handleIsRead(emailId) {
-            this.$emit('toggleIsRead', emailId)
-        },
         starEmail(id) {
             emailService.starEmail(id)
                 .then(res => console.log(res)
@@ -35,6 +33,11 @@ export default {
         },
         onMarkAs(id){
             emailService.markAs(id)
+            this.$emit('updateUnreadCount')
+        },
+        onRead(id){ 
+            emailService.toggleIsRead(id)                       
+            this.$emit('updateUnreadCount')
         }
     },
     computed: {

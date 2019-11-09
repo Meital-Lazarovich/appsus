@@ -45,7 +45,6 @@ export default  {
     },
     created() {
         this.loadEmail();
-        emailService.toggleIsRead(this.$route.params.id)
     },
     watch: {
         '$route.params.id'() {

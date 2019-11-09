@@ -1,8 +1,24 @@
 .email-filter{
-    padding-bottom: 20px;
+    padding: 10px;
 }
 
-.email-filter h2 {
-    color: #EA3939;
-    font-size: 30px;
+.sort-by {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.search-by{
+    position: fixed;
+    top: 20px;
+    left: 158px;
+    border: 1px solid #EA3939;
+}
+
+.filter-btns{
+    margin-right: 20px;
+}
+
+.filter-btns button {
+    background-color: #EA3939;
+
 }

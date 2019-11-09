@@ -28,7 +28,7 @@ export default {
         }
     },
     computed: {
-
+        
     },
     created() {
         eventBus.$on('unreadCount', (emails) => {

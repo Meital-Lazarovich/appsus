@@ -3,6 +3,7 @@
     border-top: 1px solid #EA3939;
     background-color: #f0f0f0;
     transition: 0.3s;
+    align-items: baseline;
 }
 .email:last-child{
     border-bottom: 1px solid #EA3939;
@@ -27,10 +28,11 @@
 .star{
     font-size: 1.2rem;
     margin-right: 10px;
+    transition: 0.3s;
 }
 
 .star:hover{
-    color: gold;
+    transform: scale(1.13);
 }
 
 .gold{
@@ -40,4 +42,14 @@
 .email-date{
     position: absolute;
     right: 15px;
+}
+
+.more-info{
+    padding-top: 15px;
+}
+
+.mark-as-btn{
+    position: relative;
+    left: 15px;
+    margin: 0;
 }

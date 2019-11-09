@@ -1,9 +1,8 @@
 export default {
     template: `
-    <section class="email-filter flex column align-center">
-        <h2>Search</h2>
-        <input type="text" class="filter-by" 
-        placeholder="By Subject" v-model="filterBy.subject" @input="setFilterBy"/>
+    <section class="email-filter flex justify-center">
+        <input type="text" class="search-by" 
+        placeholder="🔍 Search Mail" v-model="filterBy.subject" @input="setFilterBy"/>
         <div class="filter-btns flex">
             <button @click="showAll">All</button>
             <button @click="showUnread">Unread</button>
@@ -20,7 +19,7 @@ export default {
         return {
             filterBy: {
                 subject : '',
-                isRead: false,
+                isRead: null,
             },
             sortBy: ''
         }

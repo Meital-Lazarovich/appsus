@@ -11,14 +11,14 @@ export default {
     template: `
         <section class="email-inbox flex column">
             <email-filter @filtered="setFilter" @sort="onSort"/>
-            <email-list :emails="emailsToShow"/>
+            <email-list :emails="emailsToShow" @updateUnreadCount="updateUnreadCount"/>
         </section>
     `,
     data() {
         return {
             emails: [],
             filterBy: null,
-            unreadEmailCont: 0,
+            unreadEmailCount: 0,
         }
     },
     methods: {
@@ -27,6 +27,7 @@ export default {
         },
         onDelete(id) {
             emailService.deleteEmail(id)
+            this.updateUnreadCount()
         },
         ShowStared(){
             let staredEmails = this.emails.filter(email => email.stared === true)
@@ -37,8 +38,7 @@ export default {
             .then(res => {
                 this.emails = res
                 eventBus.$emit('emails', res)
-                let unreadEmails = this.emails.filter(email => !email.isRead)
-                eventBus.$emit('unreadCount', unreadEmails.length)
+                this.updateUnreadCount()
             })
         },
         onSort(sortBy) {
@@ -47,11 +47,15 @@ export default {
                 return this.emails.sort(sortDate)
             }
             else return this.emails.sort(sortSubjects)
+        },
+        updateUnreadCount() {            
+            let unreadEmails = this.emails.filter(email => !email.isRead)
+                this.unreadEmailCount = unreadEmails.length
+                eventBus.$emit('unreadCount', this.unreadEmailCount)
         }
     },
     computed: {
         emailsToShow() {
-            console.log('hey');
             
             if (!this.filterBy) return this.emails;
             var isRead = this.filterBy.isRead;
@@ -62,7 +66,8 @@ export default {
                 if (isShowStared) return regex.test(email.subject) && email.isRead === isRead && email.stared === true
                 return regex.test(email.subject) && email.isRead === isRead;
             })
-        },
+        }
+        
     },
     created() {
         this.ShowInbox()
