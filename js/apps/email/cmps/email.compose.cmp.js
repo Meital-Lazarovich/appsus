@@ -35,9 +35,8 @@ export default {
                 .then(() => {eventBus.$emit('show-msg', {txt:'Email Sent', type: 'success'})} 
                 )
         },
-        sendNote(note) {
-            console.log(note);
-            
+        sendNote(noteData) {
+            this.email.body = noteData      
         }
     },
     created() {
@@ -50,5 +49,5 @@ export default {
                     })
         }
         eventBus.$on('sentNote', this.sendNote)
-    }
+    },
 }

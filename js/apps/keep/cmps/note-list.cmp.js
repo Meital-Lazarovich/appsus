@@ -34,7 +34,9 @@ export default {
                     <i class="fa fa-edit"></i></button>
                 <button @click.stop="copyNote(note)"><i class="fa fa-copy"></i></button>
                 <button @click.stop="removeNote(note)"><i class="fa fa-trash"></i></button>
-                <button @click.stop="sendNote(note)"><i class="fa fa-paper-plane"></i></button>
+                <router-link to="/email/compose"><button @click.stop="sendNote(note)">
+                    <i class="fa fa-paper-plane"></i></button>
+                </router-link>
             </div>
         </div>
     </section>
@@ -87,8 +89,12 @@ export default {
             if (note.type === 'todoNote') this.$emit('editedTodo', note);
             else this.updateNotes()
         },
+        goToMail(){
+            return Promise.resolve(this.$router.push('/email/compose'))
+        },
         sendNote(note) {
-            eventBus.$emit('sentNote', note.data.typed)
+            this.goToMail()
+                .then(() => eventBus.$emit('sentNote', note.data.typed)) 
         }
     },
     components: {
