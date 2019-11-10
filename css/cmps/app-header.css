@@ -35,7 +35,7 @@
     color: #fe876c;
 }
 
-@media (max-width: 630px) {
+@media (max-width: 760px) {
     .app-header button {
         display: block;
     }
