@@ -49,6 +49,7 @@
     width: 100%;
     flex-grow: 1;
     margin-right: 5px;
+    color: #4f4f4f;
 }
 
 .welcome-page .footer i {
