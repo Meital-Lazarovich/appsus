@@ -3,7 +3,8 @@
     padding: 0 25px;
     background-color: #fff;
     border-bottom: 3px solid #cbd0d0;
-    position: fixed;
+    position: sticky;
+    top: 0;
     width: 100%;
     z-index: 200;
 }
@@ -45,7 +46,6 @@
         height: 100vh;
         position: fixed;
         text-align: center;
-        z-index: 10;
         top: 73px;
         right: 0;
         background: #efefefeb;
