@@ -27,3 +27,9 @@
     margin: 0;
     background-color: #EA3939;
 }
+
+@media (max-width: 800px) {
+    .email-send {
+        margin-top: 60px;
+    }
+}

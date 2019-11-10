@@ -9,6 +9,11 @@
     border-bottom: 1px solid #EA3939;
 }
 
+.email button {
+    background-color: #EA3939;
+    width: 27px;
+}
+
 .read {
     background-color: #f0f0f0;
     font-weight: bold;
@@ -65,9 +70,12 @@
     padding-top: 2px;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 835px) {
     .email-short-txt {
         display: none;
+    }
+    .more-info {
+        margin: auto;
     }
 }
 
@@ -76,9 +84,14 @@
         display: none;
     }
     .email-content {
-        margin-left: 40px;
+        margin-left: 20px;
     }
     .email {
         padding: 18px;
+    }
+    .email-date {
+        top: 6px;
+        right: 5px;
+        font-size: 11px;    
     }
 }

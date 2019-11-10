@@ -30,3 +30,9 @@
     margin: 0;
     background-color: #ea3939;
 }
+
+@media (max-width: 800px) {
+    .email-details {
+        margin-top: 60px;
+    }
+}

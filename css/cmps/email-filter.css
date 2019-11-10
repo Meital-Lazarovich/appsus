@@ -27,11 +27,11 @@
 
 @media (max-width: 650px) {
     .search-by {
-        position: fixed;
+        position: absolute;
         top: 95px;
         left: 50%;
         border: 1px solid #EA3939;
-        z-index: 1000;
+        z-index: 0;
         margin-left: -100PX;
     }
     .email-filter {
