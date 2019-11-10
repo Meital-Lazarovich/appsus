@@ -116,3 +116,24 @@
     color: #5d5d5d;
     padding: 15px;
 }
+
+@media(max-width: 595px) {
+    .note-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .note-list .note-preview {
+        margin: 10px auto;
+        width: 350px;
+    }
+}
+
+@media(max-width: 400px) {
+    .note-list .note-preview {
+        width: 300px;
+        margin: 10px;
+    }
+}
