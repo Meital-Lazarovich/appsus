@@ -47,7 +47,7 @@ export default {
         shortTxt(txt) {
             return `${txt.substring(0, 50)}...`;
         },
-        handleDelete(emailId) {
+        handleDelete(emailId) {            
             eventBus.$emit('delete', emailId)
         },
         onStarClick() {
@@ -55,7 +55,12 @@ export default {
             this.isStared = !this.isStared
         },
         handleDate(timeStamp) {
+            let windowWidth = window.innerWidth;
             let date = '' + new Date(timeStamp)
+                if (windowWidth < 850) {
+                    date = new Date(timeStamp);
+                   return `${date.getDate()}/${date.getMonth()}/ ${date.getFullYear()}` 
+                }
             return date.substring(0, 15)
         },
         handleMarkAs(){

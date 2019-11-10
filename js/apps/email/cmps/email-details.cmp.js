@@ -7,10 +7,10 @@ export default  {
     template: `
     <section class="email-details">
        <div class="email-info flex space-between">
-           <h3>Email Subject : {{emailToShow.subject}}</h3>
-           <div>Sent At : {{handleEmailDate(emailToShow.sentAt)}}</div>
+           <h3>{{emailToShow.subject}}</h3>
+           <div>{{handleEmailDate(emailToShow.sentAt)}}</div>
        </div>
-       <div class="email-body">Email Body : {{emailToShow.body}}</div>
+       <div class="email-body">{{emailToShow.body}}</div>
        <router-link :to="'/email/compose/' + emailToShow.id">
                 <button class="details-reply-btn"><i class="fa fa-reply"></i> Reply</button>
             </router-link>
@@ -35,12 +35,6 @@ export default  {
             let date = '' + new Date(timeStamp)
             return date.substring(0, 15)
         }
-        
-    },
-    computed: {
-        
-    },
-    components: {
         
     },
     created() {

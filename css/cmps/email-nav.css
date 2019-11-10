@@ -49,7 +49,7 @@
     display: none;
 }
 
-@media (max-width: 630px) {
+@media (max-width: 800px) {
     .side-nav {
         flex: 0 0 161px;
         border: none;
