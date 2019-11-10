@@ -34,7 +34,7 @@ function addNote(note) {
         isPinned: false,
         color: note.color
     }
-    if (note.type === 'todoNote' && typeof note.data.typed === 'string') getTodos(newNote);
+    if (newNote.type === 'todoNote' && typeof newNote.data.typed === 'string') getTodos(newNote);
     gNotes.unshift(newNote)
     storageService.store(NOTES_KEY, gNotes)
     gNotes.forEach(note => {
