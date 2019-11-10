@@ -28,6 +28,10 @@
     background-color: #EA3939;
 }
 
+.email-txt {
+    height: 350px;
+}
+
 .back-arrow {
     color: #ea3939;
     margin-top: 14px;
@@ -42,5 +46,8 @@
     .email-form {
         width: 100%;
         margin-bottom: 20px;
+    }
+    .email-txt {
+        height: 300px;
     }
 }
