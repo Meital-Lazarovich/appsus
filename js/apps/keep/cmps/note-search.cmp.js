@@ -5,7 +5,7 @@ export default {
     template: `
     <section class="note-search">
        <i class="fa fa-search"></i>
-       <input type="search" v-model="filter" @input="setfilter"></div>
+       <input type="search" v-model="filter" @input="setfilter"/>
     </section>
     `,
     data() {

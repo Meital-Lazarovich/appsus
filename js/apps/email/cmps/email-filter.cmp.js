@@ -1,8 +1,12 @@
 export default {
     template: `
     <section class="email-filter flex justify-center">
-        <input type="text" class="search-by" 
-        placeholder="🔍 Search Mail" v-model="filterBy.subject" @input="setFilterBy"/>
+    <section class="search-by">
+       <i class="fa fa-search"></i>
+       <input type="search" v-model="filterBy.subject" placeholder="Search Mail" @input="setFilterBy"/>
+    </section>
+        <!-- <input type="text" class="search-by" 
+        placeholder="🔍 Search Mail" v-model="filterBy.subject" @input="setFilterBy"/> -->
         <div class="filter-btns flex">
             <button @click="showAll">All</button>
             <button @click="showUnread">Unread</button>
