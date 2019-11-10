@@ -8,7 +8,7 @@
     position: fixed;
     z-index: 200;
     top: 16px;
-    left: 200px;
+    left: 220px;
 }
 
 .note-search input {
@@ -20,3 +20,34 @@
     color: gray;
     padding: 0 2px;
 }
+
+@media (max-width: 860px) {
+    .note-search {
+        left: 150px;
+    }
+}
+
+@media (max-width: 750px) {
+    .note-search {
+        left: 50%;
+        width: 180px;
+        margin-left: -50px;
+    }
+
+    .note-search input {
+        border: none;
+        width: 140px;
+    }
+}
+
+@media (max-width: 400px) {
+    .note-search {
+        position: inherit;
+        margin: 10px auto;
+        z-index: 200;
+        top: 2px;
+    }
+}
+
+
+
