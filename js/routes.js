@@ -1,5 +1,5 @@
 import welcomePage from './pages/welcome-page.cmp.js';
-import emailApp from './apps/email/cmps/email-app.cmps.js';
+import emailApp from './apps/email/pages/email-app.cmps.js';
 import emailInbox from './apps/email/cmps/email-inbox.cmp.js';
 import emailDetails from './apps/email/cmps/email-details.cmp.js';
 import emailCompose from './apps/email/cmps/email.compose.cmp.js';
