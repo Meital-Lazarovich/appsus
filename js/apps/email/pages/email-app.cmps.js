@@ -1,7 +1,7 @@
 'use strict'
 
-import sideNav from '../cmps/email-sideNav.cmp.js'
-import emailInbox from './email-inbox.cmp.js'
+import sideNav from '../cmps/email-nav.cmp.js'
+import emailInbox from '../cmps/email-inbox.cmp.js'
 import {eventBus} from '../../../services/event-bus.service.js'
 
 export default {
