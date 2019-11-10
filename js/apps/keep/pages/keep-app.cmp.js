@@ -4,12 +4,14 @@ import {eventBus} from '../../../services/event-bus.service.js'
 import {keepService} from '../services/keep.service.js'
 import noteAdd from '../cmps/note-add.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
+import noteSearch from '../cmps/note-search.cmp.js'
 
 
 export default {
     name: 'keep-app',
     template: `
         <section class="keep-app">
+            <note-search></note-search>
             <note-add @added="addNote"></note-add>
             <note-list :notes="notesToShow" @changed="updateNotes" @removed="removeNote" 
             @pinned="pinNote" @unpinned="unpinNote" @added="addNote" @editedTodo="editTodo"></note-list>
@@ -87,7 +89,8 @@ export default {
     },
     components: {
         noteList,
-        noteAdd
+        noteAdd,
+        noteSearch
     }
 }
 
