@@ -5,18 +5,17 @@ export default {
     template: `
     <section class="note-search">
        <i class="fa fa-search"></i>
-       <input type="search"></div>
+       <input type="search" v-model="filter" @input="setfilter"></div>
     </section>
     `,
     data() {
         return {
-            filterBy: {byName: '', fromPrice: 0, toPrice: 10000}
+            filter: null
         }
     },
     methods: {
-        onFilter() {
-            let filter = {...this.filterBy};
-            this.$emit('filtered', filter);
+        setfilter() {
+            this.$emit('filtered', this.filter)
         }
     }
 }

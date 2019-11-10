@@ -1,10 +1,16 @@
 .note-search {
     background-color: white;
     border: 1px solid #bcbcbc;
-    width: 235px;
+    width: 236px;
     border-radius: 5px;
     padding: 2px 5px;
     margin: 5px auto;
+    padding: ab;
+    position: absolute;
+    top: 15px;
+    margin-left: -130px;
+    left: 55%;
+    z-index: 200;
 }
 
 .note-search input {

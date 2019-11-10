@@ -11,7 +11,7 @@ export default {
     name: 'keep-app',
     template: `
         <section class="keep-app">
-            <note-search></note-search>
+            <note-search @filtered="filterNotes"></note-search>
             <note-add @added="addNote"></note-add>
             <note-list :notes="notesToShow" @changed="updateNotes" @removed="removeNote" 
             @pinned="pinNote" @unpinned="unpinNote" @added="addNote" @editedTodo="editTodo"></note-list>
@@ -20,7 +20,8 @@ export default {
     `,
     data(){
         return {
-            notes: []
+            notes: [],
+            filter: null
         }
     },
     methods: {
@@ -76,11 +77,20 @@ export default {
             keepService.getTodos(note)
             keepService.updateNotes()
                 .then(notes => this.notes = notes)
+        },
+        filterNotes(filter) {
+            this.filter = filter
         }
     },
     computed: {
         notesToShow() {
-            return this.notes
+            if (!this.filter) return this.notes;
+            let regex = new RegExp(`${this.filter}`, 'i');
+            return this.notes.filter(note => {
+                return (note.type === 'todoNote' || note.type === 'textNote') 
+                    && regex.test(note.data.typed)
+            }
+            )
         }
     },
     created() {

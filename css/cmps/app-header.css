@@ -35,6 +35,8 @@
     color: #fe876c;
 }
 
+
+
 @media (max-width: 760px) {
     .app-header button {
         display: block;
@@ -73,5 +75,22 @@
         font-weight: bold;
         color: #fe876c;
         box-shadow: -2px 0px 0px 0px #fe876c;
+    }
+
+    .app-header .screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .3s;
+    }
+    
+    .app-header.opened-menu .screen {
+        visibility: visible;
+        opacity: 1;
     }
 }
