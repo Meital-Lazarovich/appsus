@@ -33,6 +33,7 @@
 .welcome-page a {
     font-size: 25px;
     margin: 20px;
+    width: 95px;
     padding: 10px;
     background-color: #fe876c;
     font-weight: bold;

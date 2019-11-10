@@ -36,7 +36,6 @@ export default {
         changeNoteType(type) {
             this.note.type = type
             this.note.data = ''
-            this.$refs.noteInput.focus();
         },
         addNote() {
             let note = {...this.note};
