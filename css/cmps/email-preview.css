@@ -64,3 +64,21 @@
     padding-right: 25px;
     padding-top: 2px;
 }
+
+@media (max-width: 820px) {
+    .email-short-txt {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .prev-txt {
+        display: none;
+    }
+    .email-content {
+        margin-left: 40px;
+    }
+    .email {
+        padding: 18px;
+    }
+}

@@ -14,12 +14,12 @@ export default {
             <div class="star" :class="{gold:isStared}" title="Star email" @click.stop="onStarClick"><i class="fa fa-star"></i></div>
             <div>Me</div> 
             <div class="email-content">
-                <span>{{email.subject}}</span> - 
-                <span class="prev-txt">{{prevTxt(email.body)}}...</span>
+                <span>{{email.subject}}</span> 
+                <span class="prev-txt">- {{prevTxt(email.body)}}...</span>
             </div>
             <div class="email-date">{{handleDate(email.sentAt)}}</div>
         </div>
-        <div class="more-info" v-if="isReading">{{shortTxt(email.body)}}
+        <div class="more-info" v-if="isReading"><span class="email-short-txt">{{shortTxt(email.body)}}</span>
             <router-link :to="'/email/details/' + email.id">
                 <button title="Read more" @click="updateRead(email.id)"><i class="fa fa-expand"></i></button>
             </router-link>

@@ -24,3 +24,20 @@
     background-color: #EA3939;
     width: 75px;
 }
+
+@media (max-width: 650px) {
+    .search-by {
+        position: fixed;
+        top: 95px;
+        left: 50%;
+        border: 1px solid #EA3939;
+        z-index: 1000;
+        margin-left: -100PX;
+    }
+    .email-filter {
+        margin-top: 60px;
+    }
+    .filter-btns button {
+        width: 62px;
+    }
+}
