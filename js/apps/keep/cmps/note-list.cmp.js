@@ -94,7 +94,7 @@ export default {
         },
         saveMail(mail) {
             delete this.$route.query.mail
-            var noteToAdd = {type: 'textNote', data: mail, color: '#fa6d6d'}
+            var noteToAdd = {type: 'textNote', data: mail, color: '#ee8787'}
             this.$emit('added', noteToAdd);
         }
     },
