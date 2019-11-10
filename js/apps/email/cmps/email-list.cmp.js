@@ -28,8 +28,6 @@ export default {
     methods: {
         starEmail(id) {
             emailService.starEmail(id)
-                .then(res => console.log(res)
-                )
         },
         onMarkAs(id){
             emailService.markAs(id)

@@ -33,8 +33,6 @@ export default {
     created() {
         eventBus.$on('unreadCount', (emails) => {
             this.unreadCount = emails;
-            console.log('unread', emails);
-
         })
     },
     components: {

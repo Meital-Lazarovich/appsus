@@ -25,7 +25,6 @@ export default  {
             const emailId = this.$route.params.id;            
             emailService.findEmail(emailId)
                 .then(email =>{
-                    console.log(email);
                     
                     this.emailToShow = email
                     // this.nextBookId = emailService.getNextIdBook(email.id)
