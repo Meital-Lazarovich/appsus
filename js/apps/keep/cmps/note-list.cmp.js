@@ -100,7 +100,7 @@ export default {
     },
     created() {
         var query = this.$route.query
-        if(query.mail.length){
+        if(query.mail){
             this.saveMail(query.mail)
             var pageUrl = window.location.href;
             var newUrl = pageUrl.substr(0, pageUrl.indexOf('?'))
