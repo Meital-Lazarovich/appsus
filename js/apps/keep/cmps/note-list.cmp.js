@@ -13,7 +13,7 @@ export default {
         <div class="note-preview text-center flex column space-between" v-for="(note, idx) in notes" 
             :key="note.id" :style="{'background-color': note.color}" @click.stop="selectNote(note)" 
             :class="{selected: note === selectedNote}">
-            <img class="note-pin-img" v-if="!!note.isPinned" src="../../img/pin.png" 
+            <img class="note-pin-img" v-if="!!note.isPinned" src="./img/pin.png" 
                 @click.stop="togglePinNote(note)"/>
             <component :is="note.type" :data="note.data" @updated="updateNotes"></component>
             <div class="opts" v-if="selectedNote === note">

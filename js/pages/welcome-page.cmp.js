@@ -12,6 +12,9 @@ export default {
                 <router-link to="/keep">Keep</router-link>
                 <router-link to="/book">Books</router-link>
             </div>
+            <footer class="footer flex column justify-center">
+                <div><i class="fa fa-copyright"></i> Meital & Itay All Rights Reserved 2019</div>
+            </footer>
         </section>
     `
 }
