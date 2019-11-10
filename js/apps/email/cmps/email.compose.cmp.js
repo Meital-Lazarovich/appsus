@@ -6,14 +6,14 @@ import { eventBus } from '../../../services/event-bus.service.js'
 export default { 
     props:'',
     template: `
-        <section class="review-add">
-            <h2>New Email</h2>
+        <section class="email-send">
+            <h2 class="compose-header">New Email</h2>
 
             <form class="email-form">
             <input type="email" placeholder="To" v-model.trim="email.to"/>
             <input type="text" placeholder="Subject" v-model.trim="email.subject"/>
-            <textarea v-model="email.body" cols="30" rows="5"></textarea>
-            <router-link to="/email/inbox"><button @click="handleEmail()">Send</button></router-link>
+            <textarea v-model="email.body" cols="30" rows="20"></textarea>
+            <router-link to="/email/inbox"><button @click="handleEmail()"><i class="fa fa-paper-plane"></i> Send</button></router-link>
             </form>
         </section>
     

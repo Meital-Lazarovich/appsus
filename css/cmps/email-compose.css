@@ -1,0 +1,29 @@
+.compose-header{
+    color:  #EA3939;
+}
+
+.email-send {
+    margin-left: 20px;
+    width: 100vw;
+}
+
+.email-form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: space-evenly;
+    height: 89%;
+}
+
+.email-form input {
+    width: 100%
+}
+
+.email-form textarea {
+    border-radius: 5px;
+}
+
+.email-form button {
+    margin: 0;
+    background-color: #EA3939;
+}

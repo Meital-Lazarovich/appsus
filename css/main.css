@@ -21,6 +21,8 @@
 @import './cmps/email-filter.css';
 @import './cmps/email-list.css';
 @import './cmps/email-preview.css';
+@import './cmps/email-compose.css';
+@import './cmps/email-details.css';
 @import './cmps/note-list.css';
 @import './cmps/note-add.css';
 
