@@ -60,11 +60,13 @@
     
     .side-nav .burger-btn {
         display: block;
+        z-index: 1000;
     }
 
     .side-nav .nav {
         position: fixed;
-        top: 143px;
+        top: 73px;
+        padding-top: 70px;
         left: 0;
         height: 100vh;
         width: 161px;
@@ -72,10 +74,28 @@
         border-right: 1px solid #EA3939;
         transform: translate(-100%, 0);
         transition: transform .6s;
+        z-index: -1;
     }
 
     .side-nav.opened-menu .nav {
         transform: translate(0, 0);
+    }
+
+    .side-nav .screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .3s;
+    }
+    
+    .side-nav.opened-menu .screen {
+        visibility: visible;
+        opacity: 1;
     }
 }
 
