@@ -6,7 +6,8 @@ export default  {
     props: [],
     template: `
     <section class="email-details">
-       <div class="email-info flex space-between">
+            <router-link to="/email/inbox"><i class="fa fa-arrow-left back-arrow-details"></i></router-link>
+        <div class="email-info flex space-between">
            <h3>{{emailToShow.subject}}</h3>
            <div>{{handleEmailDate(emailToShow.sentAt)}}</div>
        </div>

@@ -31,8 +31,14 @@
     background-color: #ea3939;
 }
 
+.back-arrow-details {
+    color: #ea3939;
+    font-size: 23px;
+    margin: 14px 0;
+}
+
 @media (max-width: 800px) {
     .email-details {
-        margin-top: 60px;
+        margin: 60px auto;
     }
 }

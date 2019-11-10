@@ -12,7 +12,7 @@
     flex-direction: column;
     width: 80%;
     justify-content: space-evenly;
-    height: 89%;
+    height: 84%;
 }
 
 .email-form input {
@@ -28,8 +28,19 @@
     background-color: #EA3939;
 }
 
+.back-arrow {
+    color: #ea3939;
+    margin-top: 14px;
+    font-size: 23px;
+}
+
 @media (max-width: 800px) {
     .email-send {
-        margin-top: 60px;
+        margin: 60px auto;
+        width: 70%;
+    }
+    .email-form {
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
