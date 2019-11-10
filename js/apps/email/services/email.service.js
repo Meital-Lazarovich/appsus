@@ -106,12 +106,15 @@ let gEmails = [
         stared: false
     }
 ]
+getEmails()
 
 function getEmails() {
     let newEmails = storageService.load(STORAGE_KEY);
     if (!newEmails || newEmails.length === 0) {
-        newEmails = gEmails
-        storageService.store(STORAGE_KEY, gEmails)
+        // newEmails = gEmails
+    storageService.store(STORAGE_KEY, gEmails)
+    return Promise.resolve(gEmails);
+
     }
     gEmails = newEmails
     return Promise.resolve(gEmails);
@@ -154,6 +157,8 @@ function getUnreadEmails() {
 }
 
 function deleteEmail(id) {
+    console.log('delete');
+    
     let emailIdx = gEmails.findIndex(email => email.id === id);
     gEmails.splice(emailIdx, 1)
     storageService.store(STORAGE_KEY, gEmails)

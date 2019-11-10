@@ -3,6 +3,7 @@
     border-top: 1px solid #EA3939;
     transition: 0.3s;
     align-items: baseline;
+    position: relative;
 }
 .email:last-child{
     border-bottom: 1px solid #EA3939;
@@ -45,6 +46,8 @@
 .email-date{
     position: absolute;
     right: 15px;
+    top: 13px;
+    font-size: 13px;
 }
 
 .more-info{
