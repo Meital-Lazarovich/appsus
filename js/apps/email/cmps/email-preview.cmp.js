@@ -6,7 +6,7 @@ export default {
     props: ['email'],
     template: `
     <section class="email-prev-container" @click="toggleEmail">
-        <div class="flex justify-center">
+        <div class="flex justify-center" @click="updateRead(email.id)">
         <div class="read-btns">
                 <div class="mark-as-btn" v-if="email.isRead" @click.stop="handleMarkAs" title="Mark as read"><i class="fa fa-envelope-open"></i></div>
                 <div class="mark-as-btn" v-else @click.stop="handleMarkAs" title="Mark as unread"><i class="fa fa-envelope"></i></div>
@@ -21,10 +21,10 @@ export default {
         </div>
         <div class="more-info" v-if="isReading"><span class="email-short-txt">{{shortTxt(email.body)}}</span>
             <router-link :to="'/email/details/' + email.id">
-                <button title="Read more" @click="updateRead(email.id)"><i class="fa fa-expand"></i></button>
+                <button title="Read more"><i class="fa fa-expand"></i></button>
             </router-link>
             <router-link :to="'/email/compose/' + email.id">
-                <button title="Reply" @click="updateRead(email.id)"><i class="fa fa-reply"></i></button>
+                <button title="Reply"><i class="fa fa-reply"></i></button>
             </router-link>
             <button title="Delete" @click.stop="handleDelete(email.id)"><i class="fa fa-trash"></i></button>
             <button title="Save as a note" @click.stop="saveNote"><i class="fa fa-sticky-note"></i></button>
@@ -67,7 +67,7 @@ export default {
             this.$emit('markAs', this.email.id)
         },
         updateRead(id){
-            this.email.isRead = true;
+            // this.email.isRead = true;
             this.$emit('read', id)
         },
         saveNote(){
