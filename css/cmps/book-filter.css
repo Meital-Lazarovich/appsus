@@ -3,6 +3,8 @@
     background-color: #cbd0d0;
     height: 50px;
     margin-bottom: 15px;
+    height: 70px;
+    padding: 0 10px;
 }
 
 .book-filter h2 {
@@ -38,4 +40,30 @@
 
 .book-filter .number-input {
     width: 70px;
+}
+
+@media (max-width: 660px) {
+    .book-filter {
+        flex-direction: column;
+        height: 130px;
+        justify-content: space-around;
+    }
+    .book-filter .filter-form {
+        flex-wrap: wrap;
+        height: 80px;
+    }
+
+    .book-filter h2 {
+        margin: 0;
+    }
+}
+
+@media (max-width: 345px) {
+    .book-filter {
+        height: 155px;
+    }
+
+    .book-filter .filter-form {
+        height: 115px;
+    }
 }

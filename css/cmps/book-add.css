@@ -1,32 +1,3 @@
-{
-    margin-top: 15px;
-}
-
-button {
-    background-color: #36a097;
-    padding: 7px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    color: white;
-    margin-left: 15px;
-}
-
-input {
-    outline: none;
-    border-radius: 5px;
-    padding: 7px;
-    width: 200px;
-    border: 1px solid #b0b0b0;
-}
-
-h2 {
-    font-size: 20px;
-    color: #1d9389;
-    font-size: 23px;
-    margin-right: 0;
-}
-
 .searched-books {
     width: 100%;
 }
@@ -48,4 +19,23 @@ h2 {
 .searched-books h5 {
     width: 235px;
     text-align: center;
+}
+
+@media (max-width: 490px) {
+    .searched-books div {
+        width: 90vw;
+        margin: 25px 15px;
+    }
+
+    .searched-books h5 {
+        width: 200px;
+    }
+
+    .searched-books button {
+        margin: 0;
+    }
+
+    .searched-books img {
+        margin: 0 10px;
+    }
 }

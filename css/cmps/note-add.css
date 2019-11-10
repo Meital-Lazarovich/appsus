@@ -12,7 +12,7 @@
     border: none;
     font-size: 18px;
     margin-left: 7px;
-    width: 65%;
+    width: 260px;
 }
 
 .note-add button {
@@ -30,6 +30,19 @@
 @media (max-width: 645px) {
     .note-add {
         margin: 15px 15px;
+    }
+}
+
+@media (max-width: 460px) {
+    .note-add {
+        flex-direction: column;
+        height: 85px;
+    }
+    .note-add input {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        margin-bottom: 5px;
     }
 }
 
