@@ -1,0 +1,32 @@
+.email-details {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 80%;
+}
+
+.email-body {
+    background-color: #ececec;
+    padding: 20px;
+    border-radius: 5px;
+    height: 55%;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.email-info {
+    margin-bottom: 20px;
+}
+
+.email-info h3 {
+    margin: 0;
+}
+
+.email-info h3 + div{
+    color: #ea3939
+}
+
+.details-reply-btn {
+    margin: 0;
+    background-color: #ea3939;
+}

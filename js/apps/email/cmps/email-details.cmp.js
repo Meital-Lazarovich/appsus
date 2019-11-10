@@ -5,13 +5,14 @@ import emailService from '../services/email.service.js'
 export default  {
     props: [],
     template: `
-    <section class="email-details-container">
-       <h1>details</h1>
-       <div>Email Subject : {{emailToShow.subject}}</div>
-       <div>Sent At : {{handleEmailDate(emailToShow.sentAt)}}</div>
-       <div>Email Body : {{emailToShow.body}}</div>
+    <section class="email-details">
+       <div class="email-info flex space-between">
+           <h3>Email Subject : {{emailToShow.subject}}</h3>
+           <div>Sent At : {{handleEmailDate(emailToShow.sentAt)}}</div>
+       </div>
+       <div class="email-body">Email Body : {{emailToShow.body}}</div>
        <router-link :to="'/email/compose/' + emailToShow.id">
-                <button>Replpy</button>
+                <button class="details-reply-btn"><i class="fa fa-reply"></i> Reply</button>
             </router-link>
     </section>
     `,

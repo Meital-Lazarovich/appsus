@@ -5,7 +5,7 @@ export default {
     name: 'app-header',
     template: `
         <section class="app-header flex space-between align-center" :class="{'opened-menu': !!this.isMenuOpen}">
-            <h1>Appsus</h1>
+        <router-link exact to="/"><h1>Appsus</h1></router-link>
             <button @click="toggleMenu"><i class="fa fa-bars"></i></button>
             <nav>
                 <router-link exact to="/">Home</router-link>
