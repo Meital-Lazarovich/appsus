@@ -8,13 +8,27 @@
     border-radius: 5px;
 }
 
-.search-by{
+.search-by {
+    background-color: white;
+    border: 1px solid #d6d6d6;
+    width: 200px;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin: 5px auto;
     position: fixed;
-    top: 20px;
-    left: 158px;
-    margin-left: 42px;
-    border: 1px solid #EA3939;
-    z-index: 1000;
+    z-index: 200;
+    top: 16px;
+    left: 220px;
+}
+
+.search-by input {
+    border: none;
+    width: 162px;
+}
+
+.search-by i {
+    color: gray;
+    padding: 0 2px;
 }
 
 .filter-btns{
@@ -28,12 +42,12 @@
 
 @media (max-width: 800px) {
     .search-by{
-        margin: 0;
+        /* margin: 0; */
     }
 }
 
 
-@media (max-width: 650px) {
+@media (max-width: 820px) {
     .search-by {
         position: absolute;
         top: 95px;
