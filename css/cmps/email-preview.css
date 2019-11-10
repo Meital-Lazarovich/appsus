@@ -94,4 +94,7 @@
         right: 5px;
         font-size: 11px;    
     }
+    .email:hover {
+        color: inherit;
+    }
 }
