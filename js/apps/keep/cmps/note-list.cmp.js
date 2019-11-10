@@ -93,12 +93,19 @@ export default {
             this.$router.push({ path: '/email/compose', query: { note: noteTxt }})
         },
         saveMail(mail) {
-            var noteToAdd = {type: 'textNote', data: mail, color: '#f95c5c'}
+            delete this.$route.query.mail
+            var noteToAdd = {type: 'textNote', data: mail, color: '#fa6d6d'}
             this.$emit('added', noteToAdd);
         }
     },
     created() {
-        if (this.$route.query) this.saveMail(this.$route.query.mail)
+        var query = this.$route.query
+        if(query.mail.length){
+            this.saveMail(query.mail)
+            var pageUrl = window.location.href;
+            var newUrl = pageUrl.substr(0, pageUrl.indexOf('?'))
+            window.location.replace(`${newUrl}?mail=`)
+        }
     },
     components: {
         textNote,

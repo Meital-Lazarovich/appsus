@@ -72,7 +72,8 @@ export default {
         },
         saveNote(){
             this.$router.push({ 
-                path: '/keep', query: { mail: `${this.email.subject.toUpperCase()}: ${this.email.body}` }
+                path: '/keep', query: { mail: `${this.email.subject.toUpperCase()}: ${this.email.body}
+                (Sent from My Mail App)` }
             })
         }
         
