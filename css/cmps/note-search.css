@@ -1,18 +1,22 @@
 .note-search {
     background-color: white;
-    border: 1px solid #bcbcbc;
-    width: 236px;
+    border: 1px solid #d6d6d6;
+    width: 200px;
     border-radius: 5px;
     padding: 2px 5px;
     margin: 5px auto;
-    padding: ab;
-    position: absolute;
-    top: 15px;
-    margin-left: -130px;
-    left: 55%;
+    position: fixed;
     z-index: 200;
+    top: 16px;
+    left: 200px;
 }
 
 .note-search input {
     border: none;
+    width: 162px;
+}
+
+.note-search i {
+    color: gray;
+    padding: 0 2px;
 }

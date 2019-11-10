@@ -87,7 +87,7 @@ function unpinNote(note) {
 }
 
 function getTodos(note) {
-    let todos = note.data.typed.split(', ')
+    let todos = note.data.typed.split(',')
     let fullTodos = todos.map(todo => ({txt: todo, isDone: false, id: makeId()}))
     note.data.todos = fullTodos
 }

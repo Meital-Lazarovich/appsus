@@ -9,7 +9,7 @@ export default {
     template: `
             <section class="side-nav" :class="{'opened-menu': !!this.isMenuOpen}">
                 <div class="screen" @click="toggleMenu"></div>    
-                <button @click="toggleMenu" class="burger-btn"><i class="fa fa-bars"></i></button>
+                <button @click="toggleMenu" class="burger-btn"><i class="fa fa-ellipsis-v"></i></button>
                 <div class="nav" @click=toggleMenu()>
                     <div class="nav-item"><router-link to="/email/compose"><button class="compose-btn"><i class="fa fa-plus"></i> Compose</button></router-link></div>
                     <div class="nav-item"><router-link to="/email/inbox"><button class="nav-btn" @click="onInbox"><i class="fa fa-inbox"></i> Inbox <email-status class="nav-item" :unreadCount="unreadCount"></email-status></button></router-link></div>
