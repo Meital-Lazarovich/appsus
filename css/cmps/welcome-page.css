@@ -23,7 +23,7 @@
 
 .welcome-page .links {
     position: absolute;
-    top: 190px;
+    top: 250px;
     left: 50%;
     margin-left: -200px;
     width: 400px;
@@ -82,8 +82,8 @@
     .welcome-page .links {
         flex-direction: column;
         position: absolute;
-        top: 150px;
-        left: 5px;
+        top: 170px;
+        left: 40px;
         margin-left: 0;
         width: 120px;
         height: 185px;
