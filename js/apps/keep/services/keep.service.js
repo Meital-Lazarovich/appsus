@@ -134,6 +134,27 @@ var gNotes = [
         },
         isPinned: false,
         color: 'lightcyan'
+    },
+    {
+        id: 'giE35',
+        type: 'textNote',
+        data: {typed: `Dear diary, after this project I found out that Vue is not so bad. I'll update you again after the final project.`},
+        isPinned: false,
+        color: 'lavender'
+    },
+    {
+        id: 'oLspe56',
+        type: 'imgNote',
+        data: {typed: 'https://hips.hearstapps.com/wdy.h-cdn.co/assets/17/39/1506709524-cola-0247.jpg?crop=1.00xw:0.750xh;0,0.226xh&resize=480:*'},
+        isPinned: false,
+        color: 'lightcyan'
+    },
+    {
+        id: 'ioel42',
+        type: 'vidNote',
+        data: {typed: 'https://www.youtube.com/watch?v=T14QnZMTPOQ'},
+        isPinned: false,
+        color: 'white'
     }
 ]
 
