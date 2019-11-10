@@ -3,13 +3,16 @@
     padding: 0 25px;
     background-color: #fff;
     border-bottom: 3px solid #cbd0d0;
+    position: fixed;
+    width: 100%;
+    z-index: 200;
 }
 
 .app-header h1{
     font-size: 40px;
 }
 
-.app-header nav > * {
+.app-header nav a {
     color: black;
     margin-left: 40px;
     font-size: 20px;
@@ -25,12 +28,50 @@
 }
 
 .app-header button {
+    display: none;
     background-color: transparent;
     font-size: 26px;
     color: #fe876c;
-    display: block;
 }
 
-.app-header.opened-menu button {
-    color: blue;
+@media (max-width: 630px) {
+    .app-header button {
+        display: block;
+    }
+
+    .app-header nav {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        position: fixed;
+        text-align: center;
+        z-index: 10;
+        top: 73px;
+        right: 0;
+        background: #efefefeb;
+        border-left: 2px solid rgba(223, 218, 218, 0.6);
+        transform: translate(100%, 0);
+        transition: transform .6s;
+    }
+
+    .app-header.opened-menu nav {
+        transform: translate(0, 0);
+    }
+
+    .app-header nav a {
+        height: 5rem;
+        width: 7rem;
+        border-bottom: 1px solid #b0afb0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    .app-header nav .router-link-active {
+        box-shadow: none;
+        font-weight: bold;
+        color: #fe876c;
+        box-shadow: -2px 0px 0px 0px #fe876c;
+    }
 }

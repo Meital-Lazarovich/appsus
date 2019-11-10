@@ -97,7 +97,7 @@ export default {
                 .then(() => eventBus.$emit('sentNote', note.data.typed)) 
         },
         saveMail(mail) {
-            var noteToAdd = {type: 'textNote', data: mail, color: 'lightcoral'}
+            var noteToAdd = {type: 'textNote', data: mail, color: '#f95c5c'}
             this.$emit('added', noteToAdd);
         }
     },
