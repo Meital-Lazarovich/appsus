@@ -23,3 +23,14 @@
 .app-header nav > *:hover {
     color: #fe876c;
 }
+
+.app-header button {
+    background-color: transparent;
+    font-size: 26px;
+    color: #fe876c;
+    display: block;
+}
+
+.app-header.opened-menu button {
+    color: blue;
+}

@@ -8,17 +8,17 @@ export default {
         <input type="text" ref="noteInput" :placeholder="inputPlaceholder" @keyup.enter="addNote" 
             v-model="note.data"/>
         <div class="types">
-            <button @click="changeNoteType('textNote')" :class="{selected: note.type === 'textNote'}">
-                <i class="fa fa-font"></i>
+            <button @click="changeNoteType('textNote')" :class="{selected: note.type === 'textNote'}"
+                title="text note"><i class="fa fa-font"></i>
             </button>
-            <button @click="changeNoteType('imgNote')" :class="{selected: note.type === 'imgNote'}">
-                <i class="fa fa-image"></i>
+            <button @click="changeNoteType('imgNote')" :class="{selected: note.type === 'imgNote'}"
+                title="image note"><i class="fa fa-image"></i>
             </button>
-            <button @click="changeNoteType('vidNote')" :class="{selected: note.type === 'vidNote'}">
-                <i class="fa fa-youtube"></i>
+            <button @click="changeNoteType('vidNote')" :class="{selected: note.type === 'vidNote'}"
+                title="video note"><i class="fa fa-youtube"></i>
             </button>
-            <button @click="changeNoteType('todoNote')" :class="{selected: note.type === 'todoNote'}">
-                <i class="fa fa-list"></i>
+            <button @click="changeNoteType('todoNote')" :class="{selected: note.type === 'todoNote'}"
+                title="list note"><i class="fa fa-list"></i>
             </button>
         </div>
     </section>

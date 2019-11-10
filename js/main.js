@@ -15,6 +15,9 @@ new Vue({
         <router-view></router-view>
     </section>
     `,
+    data: {
+        openedMenu: false
+    },
     components: {
         userMsg,
         appHeader

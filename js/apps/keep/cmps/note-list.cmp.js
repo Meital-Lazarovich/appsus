@@ -34,7 +34,7 @@ export default {
                     <i class="fa fa-edit"></i></button>
                 <button @click.stop="copyNote(note)" title="copy note"><i class="fa fa-copy"></i></button>
                 <button @click.stop="removeNote(note)" title="delete note"><i class="fa fa-trash"></i></button>
-                <router-link to="/email/compose"><button @click.stop="sendNote(note)" title="copy note">
+                <router-link to="/email/compose"><button @click.stop="sendNote(note)" title="send note as email">
                     <i class="fa fa-paper-plane"></i></button>
                 </router-link>
             </div>
