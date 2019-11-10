@@ -13,7 +13,7 @@ export default {
             <form class="email-form">
                 <input type="email" placeholder="To" v-model.trim="email.to"/>
                 <input type="text" placeholder="Subject" v-model.trim="email.subject"/>
-                <textarea v-model="email.body" cols="30" rows="20"></textarea>          
+                <textarea class="email-txt" v-model="email.body"></textarea>          
                 <router-link to="/email/inbox"><button @click="handleEmail()"><i class="fa fa-paper-plane"></i> Send</button></router-link>
             </form>
         </section>
