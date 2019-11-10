@@ -35,8 +35,8 @@ export default {
                 .then(() => {eventBus.$emit('show-msg', {txt:'Email Sent', type: 'success'})} 
                 )
         },
-        sendNote(noteData) {
-            this.email.body = noteData      
+        sendNote(noteTxt) {
+            this.email.body = noteTxt      
         }
     },
     created() {
@@ -48,6 +48,6 @@ export default {
                         this.email.body = email.body;
                     })
         }
-        eventBus.$on('sentNote', this.sendNote)
+        if (this.$route.query) this.sendNote(this.$route.query.note)
     },
 }

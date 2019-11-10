@@ -70,12 +70,10 @@ export default {
             this.email.isRead = true;
             this.$emit('read', id)
         },
-        goToNotes(){
-            return Promise.resolve(this.$router.push('/keep'))
-        },
         saveNote(){
-            this.goToNotes()
-                .then(() => eventBus.$emit('savedMail', `${this.email.subject.toUpperCase()}: ${this.email.body}`))
+            this.$router.push({ 
+                path: '/keep', query: { mail: `${this.email.subject.toUpperCase()}: ${this.email.body}` }
+            })
         }
         
     },
