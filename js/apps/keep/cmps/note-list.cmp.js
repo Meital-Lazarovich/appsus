@@ -45,7 +45,7 @@ export default {
         return {
             selectedNote: null,
             openedProp: null,
-            colors: ['white', 'pink', 'palegreen', 'lightcyan', 'lemonchiffon', 'lavender']
+            colors: ['white', 'pink', 'lightgreen', 'lightcyan', 'lemonchiffon', 'lavender']
         }
     },
     methods: {

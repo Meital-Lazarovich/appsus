@@ -8,6 +8,7 @@
     width: 370px;
     text-align: center;
     line-height: 30px;
+    border-radius: 10px;
 }
 
 .user-msg button {
@@ -20,7 +21,7 @@
 }
 
 .user-msg.success {
-    background-color: #36a065f7;
+    background-color: #36a065e8;
 }
 .user-msg.error {
     background-color: #a0364af7;

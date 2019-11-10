@@ -1,6 +1,6 @@
 'use strict';
 
-
+import {eventBus} from '../../../services/event-bus.service.js'
 import {keepService} from '../services/keep.service.js'
 import noteAdd from '../cmps/note-add.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
@@ -25,6 +25,20 @@ export default {
         addNote(note) {
             keepService.addNote(note)
                 .then(notes => this.notes = notes)
+                .then(() => {
+                    const msg = {
+                        txt: `Note was successfully added!`,
+                        type: 'success'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                })
+                .catch(err => {
+                    const msg = {
+                        txt: `Something went wrong! (${err})`,
+                        type: 'error'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                })
         },
         updateNotes() {
             keepService.updateNotes()
@@ -33,6 +47,20 @@ export default {
         removeNote(note) {
             keepService.removeNote(note)
                 .then(notes => this.notes = notes)
+                .then(() => {
+                    const msg = {
+                        txt: `Note was successfully deleted!`,
+                        type: 'success'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                })
+                .catch(err => {
+                    const msg = {
+                        txt: `Something went wrong! (${err})`,
+                        type: 'error'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                })
         },
         pinNote(note) {
             keepService.pinNote(note)
